@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক | উত্তর পাতলী, পি.এম.খালী</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #fff5f5;
+        }
+        .blood-badge {
+            box-shadow: 0 4px 10px rgba(220, 38, 38, 0.25);
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="bg-red-700 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white text-red-700 p-2 rounded-full font-bold text-xl shadow">🩸</div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold leading-tight">রক্তের বন্ধন - ৬নং ওয়ার্ড</h1>
+                    <p class="text-xs md:text-sm text-red-100">উত্তর পাতলী, পি.এম.খালী, কক্সবাজার সদর</p>
+                </div>
+            </div>
+            <a href="#register-section" class="mt-2 sm:mt-0 bg-white text-red-700 hover:bg-red-50 font-semibold px-4 py-2 rounded-lg text-sm shadow transition">
+                + রক্তদাতা হোন
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-red-800 to-red-600 text-white py-12 px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+            <span class="bg-red-900/50 text-red-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">যুব ও ক্রীড়া বিভাগ, ৬নং ওয়ার্ড উদ্যোগ</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-3">এক ব্যাগ রক্ত, বাঁচাতে পারে একটি প্রাণ</h2>
+            <p class="text-red-100 text-base md:text-lg mb-6">জরুরি প্রয়োজনে আমাদের ৬নং ওয়ার্ডের (উত্তর পাতলী ও আশপাশের) স্বেচ্ছাসেবী রক্তদাতাদের খুঁজে বের করুন মুহূর্তেই।</p>
+            
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-3 gap-3 max-w-md mx-auto bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+                <div>
+                    <div id="total-donors" class="text-2xl font-bold">০</div>
+                    <div class="text-xs text-red-100">মোট রক্তদাতা</div>
+                </div>
+                <div class="border-x border-white/20">
+                    <div id="available-donors" class="text-2xl font-bold text-green-300">০</div>
+                    <div class="text-xs text-red-100">রক্তদানে প্রস্তুত</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold">২৪/৭</div>
+                    <div class="text-xs text-red-100">জরুরি সেবা</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        <div class="bg-white p-6 rounded-2xl shadow-md border border-red-100 -mt-12 relative z-10">
+            <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <span>🔍</span> রক্তদাতা খুঁজুন
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">রক্তের গ্রুপ নির্বাচন করুন</label>
+                    <select id="filter-group" class="w-full border border-gray-300 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-red-500 bg-white">
+                        <option value="ALL">সকল গ্রুপ (All)</option>
+                        <option value="A+">A+ (এ পজিটিভ)</option>
+                        <option value="A-">A- (এ নেগেটিভ)</option>
+                        <option value="B+">B+ (বি পজিটিভ)</option>
+                        <option value="B-">B- (বি নেগেটিভ)</option>
+                        <option value="O+">O+ (ও পজিটিভ)</option>
+                        <option value="O-">O- (ও নেগেটিভ)</option>
+                        <option value="AB+">AB+ (এবি পজিটিভ)</option>
+                        <option value="AB-">AB- (এবি নেগেটিভ)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">এলাকা / পাড়া বা নাম দিয়ে খুঁজুন</label>
+                    <input type="text" id="search-input" placeholder="যেমন: উত্তর পাতলী, বাজার পাড়া..." class="w-full border border-gray-300 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-red-500">
+                </div>
+                <div class="flex items-end">
+                    <label class="flex items-center space-x-2 cursor-pointer bg-red-50 w-full p-2.5 rounded-lg border border-red-200">
+                        <input type="checkbox" id="only-available" class="w-5 h-5 text-red-600 rounded focus:ring-red-500">
+                        <span class="text-sm font-medium text-red-900">শুধুমাত্র এখনই প্রস্তুত ডোনার দেখান</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Donor List Grid -->
+        <div class="mt-8">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-800">তালিকাভুক্ত রক্তদাতাগণ</h3>
+                <span id="showing-count" class="text-sm text-gray-500 font-medium"></span>
+            </div>
+            
+            <div id="donor-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Donor cards will be injected here via JS -->
+            </div>
+        </div>
+
+        <!-- Registration Section -->
+        <section id="register-section" class="mt-14 bg-white rounded-2xl shadow-md border border-red-100 overflow-hidden">
+            <div class="bg-red-700 text-white px-6 py-4">
+                <h3 class="text-xl font-bold">নতুন রক্তদাতা হিসেবে নিবন্ধন করুন</h3>
+                <p class="text-sm text-red-100">৬নং ওয়ার্ডের বাসিন্দা হলে নিচের তথ্য দিয়ে তালিকায় যুক্ত হোন</p>
+            </div>
+            <form id="donor-form" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">পূর্ণ নাম *</label>
+                    <input type="text" id="donor-name" required placeholder="আপনার নাম লিখুন" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">রক্তের গ্রুপ *</label>
+                    <select id="donor-group" required class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-500 focus:outline-none bg-white">
+                        <option value="">নির্বাচন করুন</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">মোবাইল নম্বর *</label>
+                    <input type="tel" id="donor-phone" required placeholder="018XXXXXXXX" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">গ্রাম / পাড়া *</label>
+                    <input type="text" id="donor-area" required value="উত্তর পাতলী, ৬নং ওয়ার্ড" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">সর্বশেষ রক্তদানের তারিখ (যদি দিয়ে থাকেন)</label>
+                    <input type="date" id="donor-last-date" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-500 focus:outline-none">
+                    <p class="text-xs text-gray-500 mt-1">আগে রক্ত না দিয়ে থাকলে খালি রাখুন।</p>
+                </div>
+                <div class="flex items-end">
+                    <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-6 rounded-lg shadow transition">
+                        তালিকায় যুক্ত হোন
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-8 px-4 mt-12 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h4 class="text-white font-bold text-lg">রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক</h4>
+            <p class="text-sm text-gray-400 mt-1">পরিচালনায়: যুব ও ক্রীড়া বিভাগ, ৬নং ওয়ার্ড, পি.এম.খালী, কক্সবাজার সদর</p>
+            <p class="text-xs text-gray-500 mt-4">© ২০২৬ সর্বস্বত্ব সংরক্ষিত | মানবতার সেবায় আমরা সর্বদা প্রস্তুত</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // প্রাথমিক নমুনা ডোনার তালিকা (আপনি চাইলে কোড থেকে এগুলো পরিবর্তন বা নতুন যুক্ত করতে পারবেন)
+        const defaultDonors = [
+            { id: 1, name: "আল আমিন", group: "O+", phone: "01800000001", area: "উত্তর পাতলী, ৬নং ওয়ার্ড", lastDate: "" },
+            { id: 2, name: "সাকিবুল হাসান", group: "B+", phone: "01800000002", area: "উত্তর পাতলী, ৬নং ওয়ার্ড", lastDate: "2026-06-15" },
+            { id: 3, name: "মোহাম্মদ রাশেদ", group: "A+", phone: "01800000003", area: "পি.এম.খালী, ৬নং ওয়ার্ড", lastDate: "2026-10-10" },
+            { id: 4, name: "তারেকুল ইসলাম", group: "AB+", phone: "01800000004", area: "উত্তর পাতলী পূর্ব পাড়া", lastDate: "" },
+            { id: 5, name: "আব্দুল্লাহ আল মামুন", group: "O-", phone: "01800000005", area: "৬নং ওয়ার্ড, পি.এম.খালী", lastDate: "2026-05-01" },
+            { id: 6, name: "নুরুল আবছার", group: "B-", phone: "01800000006", area: "উত্তর পাতলী পশ্চিম পাড়া", lastDate: "" }
+        ];
+
+        // LocalStorage থেকে ডেটা লোড করা
+        let donors = JSON.parse(localStorage.getItem('ward6_donors')) || defaultDonors;
+
+        // ৩ মাস (৯০ দিন) পার হয়েছে কিনা তা চেক করার ফাংশন
+        function checkEligibility(lastDate) {
+            if (!lastDate) return { eligible: true, text: "রক্তদানে প্রস্তুত" };
+            const last = new Date(lastDate);
+            const today = new Date();
+            const diffDays = Math.floor((today - last) / (1000 * 60 * 60 * 24));
+            
+            if (diffDays >= 90) {
+                return { eligible: true, text: "রক্তদানে প্রস্তুত" };
+            } else {
+                const remaining = 90 - diffDays;
+                return { eligible: false, text: `${remaining} দিন পর দিতে পারবেন` };
+            }
+        }
+
+        function renderDonors() {
+            const grid = document.getElementById('donor-grid');
+            const selectedGroup = document.getElementById('filter-group').value;
+            const searchText = document.getElementById('search-input').value.toLowerCase();
+            const onlyAvailable = document.getElementById('only-available').checked;
+
+            grid.innerHTML = '';
+            let availableCount = 0;
+
+            const filtered = donors.filter(donor => {
+                const status = checkEligibility(donor.lastDate);
+                if (status.eligible) availableCount++;
+
+                const matchGroup = selectedGroup === 'ALL' || donor.group === selectedGroup;
+                const matchSearch = donor.name.toLowerCase().includes(searchText) || donor.area.toLowerCase().includes(searchText);
+                const matchAvail = !onlyAvailable || status.eligible;
+
+                return matchGroup && matchSearch && matchAvail;
+            });
+
+            // পরিসংখ্যান আপডেট
+            document.getElementById('total-donors').innerText = donors.length.toLocaleString('bn-BD');
+            const totalAvail = donors.filter(d => checkEligibility(d.lastDate).eligible).length;
+            document.getElementById('available-donors').innerText = totalAvail.toLocaleString('bn-BD');
+            document.getElementById('showing-count').innerText = `দেখানো হচ্ছে: ${filtered.length.toLocaleString('bn-BD')} জন`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-10 bg-white rounded-xl border border-dashed border-gray-300 text-gray-500">দুঃখিত, এই মুহূর্তে কোনো রক্তদাতা খুঁজে পাওয়া যায়নি।</div>`;
+                return;
+            }
+
+            filtered.forEach(donor => {
+                const status = checkEligibility(donor.lastDate);
+                const badgeClass = status.eligible 
+                    ? "bg-green-100 text-green-800 border-green-200" 
+                    : "bg-amber-100 text-amber-800 border-amber-200";
+
+                const card = `
+                    <div class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition border border-red-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900">${donor.name}</h4>
+                                    <p class="text-sm text-gray-500 mt-0.5">📍 ${donor.area}</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-lg blood-badge shrink-0">
+                                    ${donor.group}
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded-full border ${badgeClass}">
+                                    ● ${status.text}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mt-5 pt-4 border-t border-gray-100 flex gap-2">
+                            <a href="tel:${donor.phone}" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center py-2 rounded-lg text-sm font-semibold transition">
+                                📞 কল করুন
+                            </a>
+                            <button onclick="copyNumber('${donor.phone}')" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-medium transition" title="নম্বর কপি করুন">
+                                কপি
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        function copyNumber(num) {
+            navigator.clipboard.writeText(num);
+            alert('মোবাইল নম্বর কপি হয়েছে: ' + num);
+        }
+
+        // নতুন ডোনার যুক্ত করা
+        document.getElementById('donor-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const newDonor = {
+                id: Date.now(),
+                name: document.getElementById('donor-name').value.trim(),
+                group: document.getElementById('donor-group').value,
+                phone: document.getElementById('donor-phone').value.trim(),
+                area: document.getElementById('donor-area').value.trim(),
+                lastDate: document.getElementById('donor-last-date').value
+            };
+
+            donors.unshift(newDonor);
+            localStorage.setItem('ward6_donors', JSON.stringify(donors));
+            this.reset();
+            document.getElementById('donor-area').value = "উত্তর পাতলী, ৬নং ওয়ার্ড";
+            renderDonors();
+            alert('ধন্যবাদ! রক্তদাতা হিসেবে আপনার নাম সফলভাবে যুক্ত হয়েছে।');
+        });
+
+        // ইভেন্ট লিসেনার
+        document.getElementById('filter-group').addEventListener('change', renderDonors);
+        document.getElementById('search-input').addEventListener('input', renderDonors);
+        document.getElementById('only-available').addEventListener('change', renderDonors);
+
+        // পেজ লোড হলে রেন্ডার
+        renderDonors();
+    </script>
+</body>
+</html>
+
