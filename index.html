@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক | বৃহত্তর পাতলী, পি.এম.খালী</title>
+    <title>রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক | উত্তর পাতলী, পি.এম.খালী</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -25,7 +25,7 @@
                 <div class="bg-white text-red-700 p-2 rounded-full font-bold text-xl shadow">🩸</div>
                 <div>
                     <h1 class="text-xl md:text-2xl font-bold leading-tight">রক্তের বন্ধন - ৬নং ওয়ার্ড</h1>
-                    <p class="text-xs md:text-sm text-red-100"> বৃহত্তর পাতলী, পি.এম.খালী, কক্সবাজার সদর</p>
+                    <p class="text-xs md:text-sm text-red-100">উত্তর পাতলী, পি.এম.খালী, কক্সবাজার সদর</p>
                 </div>
             </div>
             <a href="#register-section" class="mt-2 sm:mt-0 bg-white text-red-700 hover:bg-red-50 font-semibold px-4 py-2 rounded-lg text-sm shadow transition">
@@ -39,7 +39,7 @@
         <div class="max-w-3xl mx-auto">
             <span class="bg-red-900/50 text-red-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">যুব ও ক্রীড়া বিভাগ, ৬নং ওয়ার্ড উদ্যোগ</span>
             <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-3">এক ব্যাগ রক্ত, বাঁচাতে পারে একটি প্রাণ</h2>
-            <p class="text-red-100 text-base md:text-lg mb-6">জরুরি প্রয়োজনে আমাদের ৬নং ওয়ার্ডের (বৃহত্তর পাতলী ও আশপাশের) স্বেচ্ছাসেবী রক্তদাতাদের খুঁজে বের করুন মুহূর্তেই।</p>
+            <p class="text-red-100 text-base md:text-lg mb-6">জরুরি প্রয়োজনে আমাদের ৬নং ওয়ার্ডের (উত্তর পাতলী ও আশপাশের) স্বেচ্ছাসেবী রক্তদাতাদের খুঁজে বের করুন মুহূর্তেই।</p>
             
             <div class="grid grid-cols-3 gap-3 max-w-md mx-auto bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
                 <div>
@@ -139,10 +139,16 @@
                     <label class="block text-sm font-semibold text-gray-700 mb-1">সর্বশেষ রক্তদানের তারিখ (যদি দিয়ে থাকেন)</label>
                     <input type="date" id="donor-last-date" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-500 focus:outline-none">
                 </div>
+                
+                <!-- সরাসরি গ্যালারি থেকে ছবি আপলোড করার বাটন -->
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">ছবির লিংক (ঐচ্ছিক)</label>
-                    <input type="text" id="donor-photo" placeholder="ছবির নাম বা লিংক (না দিলে খালি রাখুন)" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-500 focus:outline-none">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">আপনার ছবি যুক্ত করুন (ঐচ্ছিক)</label>
+                    <div class="flex items-center gap-3">
+                        <input type="file" id="donor-photo-file" accept="image/*" class="w-full text-sm text-gray-600 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100 border border-gray-300 rounded-lg cursor-pointer">
+                        <img id="photo-preview" src="" alt="Preview" class="hidden w-11 h-11 rounded-full object-cover border border-red-300 shrink-0">
+                    </div>
                 </div>
+
                 <div class="md:col-span-2">
                     <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-6 rounded-lg shadow transition">
                         তালিকায় যুক্ত হোন
@@ -162,19 +168,9 @@
     </footer>
 
     <!-- ========================================================================= -->
-    <!-- মূল ডেটা ও প্রোগ্রামিং অংশ (এখান থেকেই আপনি নাম, নম্বর ও ছবি যুক্ত করবেন) -->
+    <!-- মূল ডেটা ও প্রোগ্রামিং অংশ -->
     <!-- ========================================================================= -->
     <script>
-        /* 
-         * ছবি ও তথ্য পরিবর্তনের নিয়ম:
-         * - name: "রক্তদাতার নাম"
-         * - group: "রক্তের গ্রুপ" (A+, A-, B+, B-, O+, O-, AB+, AB-)
-         * - phone: "মোবাইল নম্বর"
-         * - area: "ঠিকানা বা পাড়া"
-         * - lastDate: "সর্বশেষ রক্তদানের তারিখ" (যেমন: "2026-10-10", না দিলে "" খালি রাখুন)
-         * - photo: "GitHub-এ আপলোড করা ছবির নাম" (যেমন: "alamin.jpg", ছবি না থাকলে "" খালি রাখুন)
-         */
-
         const স্থায়ী_রক্তদাতা_তালিকা = [
             { 
                 id: 1, 
@@ -183,7 +179,7 @@
                 phone: "01930912687", 
                 area: "উত্তর পাতলী, ৬নং ওয়ার্ড", 
                 lastDate: "",
-                photo: "alamin.jpg" // আপনার আপলোড করা ছবিটি এখানে যুক্ত করা হয়েছে
+                photo: "alamin.jpg"
             },
             { 
                 id: 2, 
@@ -232,7 +228,6 @@
             }
         ];
 
-        // ছবি না থাকলে বা ছবির নাম ভুল হলে স্বয়ংক্রিয়ভাবে নাম অনুযায়ী ডিফল্ট প্রোফাইল ছবি তৈরি
         function ছবির_লিংক_তৈরি(donor) {
             if (donor.photo && donor.photo.trim() !== "") {
                 return donor.photo.trim();
@@ -240,7 +235,39 @@
             return `https://ui-avatars.com/api/?name=${encodeURIComponent(donor.name)}&background=fee2e2&color=b91c1c&bold=true&size=128`;
         }
 
-        let donors = JSON.parse(localStorage.getItem('ward6_donors_photo_v1')) || স্থায়ী_রক্তদাতা_তালিকা;
+        let donors = JSON.parse(localStorage.getItem('ward6_donors_photo_v2')) || স্থায়ী_রক্তদাতা_তালিকা;
+        let নির্বাচিত_ছবি_ডেটা = "";
+
+        // গ্যালারি থেকে ছবি বাছাই করলে সেটি ছোট করে প্রসেস ও প্রিভিউ করা
+        document.getElementById('donor-photo-file').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) {
+                নির্বাচিত_ছবি_ডেটা = "";
+                document.getElementById('photo-preview').classList.add('hidden');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const img = new Image();
+                img.onload = function() {
+                    // ব্রাউজারে দ্রুত সেভ হওয়ার জন্য ছবিটিকে 200x200 পিক্সেলে অপ্টিমাইজ করা
+                    const canvas = document.createElement('canvas');
+                    const size = 200;
+                    canvas.width = size;
+                    canvas.height = size;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, size, size);
+                    
+                    নির্বাচিত_ছবি_ডেটা = canvas.toDataURL('image/jpeg', 0.8);
+                    const preview = document.getElementById('photo-preview');
+                    preview.src = নির্বাচিত_ছবি_ডেটা;
+                    preview.classList.remove('hidden');
+                };
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
 
         function রক্তদানের_যোগ্যতা_যাচাই(lastDate) {
             if (!lastDate) return { eligible: true, text: "রক্তদানে প্রস্তুত" };
@@ -341,15 +368,17 @@
                 phone: document.getElementById('donor-phone').value.trim(),
                 area: document.getElementById('donor-area').value.trim(),
                 lastDate: document.getElementById('donor-last-date').value,
-                photo: document.getElementById('donor-photo').value.trim()
+                photo: নির্বাচিত_ছবি_ডেটা
             };
 
             donors.unshift(নতুন_রক্তদাতা);
-            localStorage.setItem('ward6_donors_photo_v1', JSON.stringify(donors));
+            localStorage.setItem('ward6_donors_photo_v2', JSON.stringify(donors));
             this.reset();
+            নির্বাচিত_ছবি_ডেটা = "";
+            document.getElementById('photo-preview').classList.add('hidden');
             document.getElementById('donor-area').value = "উত্তর পাতলী, ৬নং ওয়ার্ড";
             তালিকা_দেখান();
-            alert('ধন্যবাদ! রক্তদাতা হিসেবে আপনার নাম সফলভাবে যুক্ত হয়েছে।');
+            alert('ধন্যবাদ! রক্তদাতা হিসেবে আপনার নাম ও ছবি সফলভাবে যুক্ত হয়েছে।');
         });
 
         document.getElementById('filter-group').addEventListener('change', তালিকা_দেখান);
