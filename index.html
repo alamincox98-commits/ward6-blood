@@ -29,7 +29,10 @@
                     <p id="txt-site-subtitle" class="text-xs text-red-100">উত্তর পাতলী, পি.এম.খালী, কক্সবাজার সদর</p>
                 </div>
             </div>
-            <div class="flex items-center gap-2">
+            <div class="flex flex-wrap items-center gap-2">
+                <a href="#gallery-section" class="bg-red-800 hover:bg-red-900 text-white border border-red-500 px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition">
+                    📸 গ্যালারি
+                </a>
                 <button onclick="সাইট_শেয়ার_করুন()" class="bg-red-800 hover:bg-red-900 text-white border border-red-500 px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition flex items-center gap-1">
                     <span>🔗</span> শেয়ার
                 </button>
@@ -48,7 +51,7 @@
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
                 <span class="bg-amber-400 text-gray-900 text-xs font-bold px-2.5 py-0.5 rounded uppercase">অ্যাডমিন প্যানেল চালু</span>
-                <p class="text-sm text-gray-300 mt-1">ওয়েবসাইটের যেকোনো লেখা বা রক্তদাতার তথ্য পরিবর্তন করে ডানপাশের বাটনে ক্লিক করে GitHub-এর জন্য কোড কপি করুন।</p>
+                <p class="text-sm text-gray-300 mt-1">ওয়েবসাইটের যেকোনো লেখা, রক্তদাতার তথ্য বা গ্যালারির ছবি নিয়ন্ত্রণ করুন। স্থায়ীভাবে সেভ করতে GitHub কোড কপি করুন।</p>
             </div>
             <div class="flex flex-wrap items-center gap-2 shrink-0">
                 <button onclick="লেখা_এডিট_মোডাল_খুলুন()" class="bg-amber-500 hover:bg-amber-600 text-gray-900 px-4 py-2 rounded-lg text-xs md:text-sm font-bold shadow transition">
@@ -140,6 +143,71 @@
             <div id="donor-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
         </div>
 
+        <!-- ================= রক্তদানের স্মৃতি গ্যালারি সেকশন ================= -->
+        <section id="gallery-section" class="mt-14 bg-white rounded-2xl shadow-md border border-red-100 p-6">
+            <div class="flex flex-wrap justify-between items-center gap-3 border-b border-gray-100 pb-4 mb-6">
+                <div>
+                    <h3 id="txt-gallery-title" class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <span>📸</span> রক্তদানের মুহূর্ত (গ্যালারি)
+                    </h3>
+                    <p id="txt-gallery-subtitle" class="text-sm text-gray-500 mt-0.5">আমাদের ৬নং ওয়ার্ডের বীর রক্তদাতাদের রক্তদানের কিছু স্মরণীয় মুহূর্ত</p>
+                </div>
+                <button onclick="গ্যালারি_ফর্ম_টগল()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-lg text-sm shadow transition flex items-center gap-1.5">
+                    <span>+</span> রক্তদানের ছবি যুক্ত করুন
+                </button>
+            </div>
+
+            <!-- গ্যালারিতে নতুন ছবি আপলোড করার ফর্ম (বাটনে ক্লিক করলে খুলবে) -->
+            <div id="gallery-upload-box" class="hidden bg-red-50/70 border border-red-200 rounded-xl p-5 mb-6">
+                <h4 class="font-bold text-red-900 mb-3 text-base">নতুন রক্তদানের ছবি পোস্ট করুন</h4>
+                <form id="gallery-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">রক্তদাতার নাম *</label>
+                        <input type="text" id="gal-donor-name" required placeholder="যেমন: আল আমিন" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm bg-white">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">রক্তের গ্রুপ *</label>
+                            <select id="gal-group" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm bg-white">
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">তারিখ *</label>
+                            <input type="date" id="gal-date" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm bg-white">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">রক্তদানের ছবি নির্বাচন করুন *</label>
+                        <input type="file" id="gal-photo-file" accept="image/*" required class="w-full text-xs text-gray-600 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:font-semibold file:bg-red-600 file:text-white hover:file:bg-red-700 border border-gray-300 rounded-lg bg-white cursor-pointer">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">সংক্ষিপ্ত ক্যাপশন / হাসপাতালের নাম</label>
+                        <input type="text" id="gal-caption" placeholder="যেমন: কক্সবাজার সদর হাসপাতালে জরুরি রক্তদান" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm bg-white">
+                    </div>
+                    <div class="md:col-span-2 flex items-center justify-between gap-3 pt-2">
+                        <img id="gal-preview" src="" alt="Preview" class="hidden h-16 w-24 object-cover rounded-lg border border-red-300">
+                        <div class="flex gap-2 ml-auto">
+                            <button type="button" onclick="গ্যালারি_ফর্ম_টগল()" class="px-4 py-2 rounded-lg text-sm font-semibold bg-gray-200 hover:bg-gray-300 text-gray-700">বাতিল</button>
+                            <button type="submit" class="px-5 py-2 rounded-lg text-sm font-bold bg-red-600 hover:bg-red-700 text-white shadow">গ্যালারিতে প্রকাশ করুন</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- গ্যালারির ছবিসমূহ -->
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- জাভাস্ক্রিপ্ট দিয়ে গ্যালারির ছবিগুলো এখানে বসবে -->
+            </div>
+        </section>
+
         <!-- ================= নতুন রক্তদাতা নিবন্ধন ফর্ম ================= -->
         <section id="register-section" class="mt-14 bg-white rounded-2xl shadow-md border border-red-100 overflow-hidden">
             <div class="bg-red-700 text-white px-6 py-4">
@@ -178,7 +246,7 @@
                     <input type="date" id="donor-last-date" class="w-full border border-gray-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-red-500 focus:outline-none">
                 </div>
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">আপনার ছবি যুক্ত করুন (ঐচ্ছিক)</label>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">প্রোফাইল ছবি যুক্ত করুন (ঐচ্ছিক)</label>
                     <div class="flex items-center gap-3">
                         <input type="file" id="donor-photo-file" accept="image/*" class="w-full text-sm text-gray-600 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100 border border-gray-300 rounded-lg cursor-pointer">
                         <img id="photo-preview" src="" alt="Preview" class="hidden w-11 h-11 rounded-full object-cover border border-red-300 shrink-0">
@@ -201,6 +269,23 @@
             <p id="txt-footer-copy" class="text-xs text-gray-500 mt-4">© ২০২৬ সর্বস্বত্ব সংরক্ষিত | মানবতার সেবায় আমরা সর্বদা প্রস্তুত</p>
         </div>
     </footer>
+
+    <!-- ================= গ্যালারির ছবি বড় করে দেখার মোডাল (Lightbox) ================= -->
+    <div id="lightbox-modal" onclick="লাইটবক্স_বন্ধ()" class="hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
+        <div class="max-w-3xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+            <div class="relative bg-black flex justify-center">
+                <img id="lb-img" src="" alt="রক্তদানের ছবি" class="max-h-[75vh] w-auto object-contain">
+                <button onclick="লাইটবক্স_বন্ধ()" class="absolute top-3 right-3 bg-white/90 hover:bg-white text-gray-900 w-9 h-9 rounded-full font-bold text-xl shadow">&times;</button>
+            </div>
+            <div class="p-4 flex justify-between items-center">
+                <div>
+                    <h4 id="lb-title" class="font-bold text-gray-900 text-lg"></h4>
+                    <p id="lb-caption" class="text-sm text-gray-600"></p>
+                </div>
+                <span id="lb-badge" class="bg-red-600 text-white font-bold px-3 py-1 rounded-full text-sm"></span>
+            </div>
+        </div>
+    </div>
 
     <!-- ================= অ্যাডমিন: ওয়েবসাইটের লেখা এডিট মোডাল ================= -->
     <div id="text-edit-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
@@ -261,13 +346,23 @@
                         <input type="text" id="in-list-heading" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">নিবন্ধন ফর্মের শিরোনাম</label>
-                        <input type="text" id="in-form-title" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                        <label class="block text-xs font-bold text-gray-700 mb-1">গ্যালারি সেকশনের শিরোনাম</label>
+                        <input type="text" id="in-gallery-title" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">নিবন্ধন ফর্মের উপ-শিরোনাম</label>
-                    <input type="text" id="in-form-subtitle" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    <label class="block text-xs font-bold text-gray-700 mb-1">গ্যালারি সেকশনের উপ-শিরোনাম</label>
+                    <input type="text" id="in-gallery-subtitle" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">নিবন্ধন ফর্মের শিরোনাম</label>
+                        <input type="text" id="in-form-title" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">নিবন্ধন ফর্মের উপ-শিরোনাম</label>
+                        <input type="text" id="in-form-subtitle" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -365,6 +460,8 @@
             stat3Val: "২৪/৭",
             stat3: "জরুরি সেবা",
             listHeading: "তালিকাভুক্ত রক্তদাতাগণ",
+            galleryTitle: "রক্তদানের মুহূর্ত (গ্যালারি)",
+            gallerySubtitle: "আমাদের ৬নং ওয়ার্ডের বীর রক্তদাতাদের রক্তদানের কিছু স্মরণীয় মুহূর্ত",
             formTitle: "নতুন রক্তদাতা হিসেবে নিবন্ধন করুন",
             formSubtitle: "৬নং ওয়ার্ডের বাসিন্দা হলে নিচের তথ্য দিয়ে তালিকায় যুক্ত হোন",
             footerTitle: "রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক",
@@ -382,9 +479,24 @@
             { id: 6, name: "নুরুল আবছার", group: "B-", phone: "01800000006", area: "উত্তর পাতলী পশ্চিম পাড়া", lastDate: "", photo: "" }
         ];
 
-        let siteTexts = JSON.parse(localStorage.getItem('ward6_site_texts_v1')) || স্থায়ী_ওয়েবসাইট_লেখা;
+        // স্থায়ী রক্তদানের গ্যালারি তালিকা
+        const স্থায়ী_গ্যালারি_তালিকা = [
+            {
+                id: 101,
+                donorName: "আল আমিন",
+                group: "B+",
+                date: "2026-10-15",
+                caption: "কক্সবাজার সদর হাসপাতালে জরুরি রোগীকে রক্তদান",
+                image: "alamin.jpg"
+            }
+        ];
+
+        let siteTexts = JSON.parse(localStorage.getItem('ward6_site_texts_v2')) || স্থায়ী_ওয়েবসাইট_লেখা;
         let donors = JSON.parse(localStorage.getItem('ward6_donors_admin_v1')) || স্থায়ী_রক্তদাতা_তালিকা;
+        let galleryItems = JSON.parse(localStorage.getItem('ward6_gallery_v1')) || স্থায়ী_গ্যালারি_তালিকা;
+        
         let নির্বাচিত_ছবি_ডেটা = "";
+        let গ্যালারি_ছবি_ডেটা = "";
 
         // ওয়েবসাইটের লেখাগুলো স্ক্রিনে বসানো
         function ওয়েবসাইট_লেখা_প্রয়োগ() {
@@ -400,6 +512,8 @@
             document.getElementById('txt-stat-3-val').innerText = siteTexts.stat3Val;
             document.getElementById('txt-stat-3').innerText = siteTexts.stat3;
             document.getElementById('txt-list-heading').innerText = siteTexts.listHeading;
+            document.getElementById('txt-gallery-title').innerHTML = `<span>📸</span> ${siteTexts.galleryTitle}`;
+            document.getElementById('txt-gallery-subtitle').innerText = siteTexts.gallerySubtitle;
             document.getElementById('txt-form-title').innerText = siteTexts.formTitle;
             document.getElementById('txt-form-subtitle').innerText = siteTexts.formSubtitle;
             document.getElementById('txt-footer-title').innerText = siteTexts.footerTitle;
@@ -407,7 +521,130 @@
             document.getElementById('txt-footer-copy').innerText = siteTexts.footerCopy;
         }
 
-        // লেখা এডিট মোডাল খোলা ও বন্ধ করা
+        // গ্যালারি ফর্ম খোলা ও বন্ধ করা
+        function গ্যালারি_ফর্ম_টগল() {
+            document.getElementById('gallery-upload-box').classList.toggle('hidden');
+        }
+
+        // গ্যালারির জন্য ছবি প্রসেস করা
+        document.getElementById('gal-photo-file').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) {
+                গ্যালারি_ছবি_ডেটা = "";
+                document.getElementById('gal-preview').classList.add('hidden');
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const maxWidth = 600;
+                    const scale = maxWidth / img.width;
+                    canvas.width = maxWidth;
+                    canvas.height = img.height * scale;
+                    canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+                    গ্যালারি_ছবি_ডেটা = canvas.toDataURL('image/jpeg', 0.8);
+                    const preview = document.getElementById('gal-preview');
+                    preview.src = গ্যালারি_ছবি_ডেটা;
+                    preview.classList.remove('hidden');
+                };
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // গ্যালারি ফর্ম সাবমিট
+        document.getElementById('gallery-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!গ্যালারি_ছবি_ডেটা) {
+                alert("অনুগ্রহ করে একটি ছবি নির্বাচন করুন।");
+                return;
+            }
+            const নতুন_ছবি = {
+                id: Date.now(),
+                donorName: document.getElementById('gal-donor-name').value.trim(),
+                group: document.getElementById('gal-group').value,
+                date: document.getElementById('gal-date').value,
+                caption: document.getElementById('gal-caption').value.trim() || "স্বেচ্ছায় রক্তদান",
+                image: গ্যালারি_ছবি_ডেটা
+            };
+            galleryItems.unshift(নতুন_ছবি);
+            localStorage.setItem('ward6_gallery_v1', JSON.stringify(galleryItems));
+            this.reset();
+            গ্যালারি_ছবি_ডেটা = "";
+            document.getElementById('gal-preview').classList.add('hidden');
+            গ্যালারি_ফর্ম_টগল();
+            গ্যালারি_দেখান();
+            alert("ধন্যবাদ! আপনার রক্তদানের ছবিটি গ্যালারিতে যুক্ত হয়েছে।");
+        });
+
+        function গ্যালারি_ছবি_মুছুন(id) {
+            if (confirm("আপনি কি গ্যালারি থেকে এই ছবিটি মুছে ফেলতে চান?")) {
+                galleryItems = galleryItems.filter(item => item.id !== id);
+                localStorage.setItem('ward6_gallery_v1', JSON.stringify(galleryItems));
+                গ্যালারি_দেখান();
+            }
+        }
+
+        function লাইটবক্স_খুলুন(id) {
+            const item = galleryItems.find(g => g.id === id);
+            if (!item) return;
+            document.getElementById('lb-img').src = item.image;
+            document.getElementById('lb-title').innerText = item.donorName;
+            const তারিখ = item.date ? new Date(item.date).toLocaleDateString('bn-BD', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+            document.getElementById('lb-caption').innerText = `${item.caption} ${তারিখ ? '• ' + তারিখ : ''}`;
+            document.getElementById('lb-badge').innerText = item.group;
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        }
+
+        function লাইটবক্স_বন্ধ() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
+
+        function গ্যালারি_দেখান() {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = '';
+
+            if (galleryItems.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-8 bg-gray-50 rounded-xl border border-dashed border-gray-300 text-gray-500 text-sm">এখনো কোনো ছবি যুক্ত করা হয়নি। উপরের বাটনে ক্লিক করে প্রথম ছবিটি যুক্ত করুন!</div>`;
+                return;
+            }
+
+            galleryItems.forEach(item => {
+                const তারিখ = item.date ? new Date(item.date).toLocaleDateString('bn-BD', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+                const অ্যাডমিন_ডিলিট = অ্যাডমিন_লগইন_আছে ? `
+                    <button onclick="event.stopPropagation(); গ্যালারি_ছবি_মুছুন(${item.id})" class="absolute top-2.5 left-2.5 bg-gray-900/85 hover:bg-black text-white px-2.5 py-1 rounded-lg text-xs font-bold shadow">
+                        🗑️ মুছুন
+                    </button>
+                ` : '';
+
+                const কার্ড = `
+                    <div onclick="লাইটবক্স_খুলুন(${item.id})" class="group cursor-pointer bg-white rounded-xl overflow-hidden border border-gray-200 shadow-xs hover:shadow-md transition flex flex-col">
+                        <div class="relative h-52 bg-gray-100 overflow-hidden">
+                            <img src="${item.image}" alt="${item.donorName}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            <span class="absolute top-2.5 right-2.5 bg-red-600 text-white font-bold text-xs px-2.5 py-1 rounded-full shadow">
+                                ${item.group}
+                            </span>
+                            ${অ্যাডমিন_ডিলিট}
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-base">${item.donorName}</h4>
+                                <p class="text-xs text-gray-600 mt-1 line-clamp-2">${item.caption}</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-t border-gray-100 flex justify-between items-center text-[11px] text-gray-400">
+                                <span>📅 ${তারিখ}</span>
+                                <span class="text-red-600 font-semibold group-hover:underline">বড় করে দেখুন &rarr;</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += কার্ড;
+            });
+        }
+
+        // লেখা এডিট মোডাল
         function লেখা_এডিট_মোডাল_খুলুন() {
             document.getElementById('in-site-title').value = siteTexts.siteTitle;
             document.getElementById('in-site-subtitle').value = siteTexts.siteSubtitle;
@@ -420,6 +657,8 @@
             document.getElementById('in-stat-3-val').value = siteTexts.stat3Val;
             document.getElementById('in-stat-3').value = siteTexts.stat3;
             document.getElementById('in-list-heading').value = siteTexts.listHeading;
+            document.getElementById('in-gallery-title').value = siteTexts.galleryTitle;
+            document.getElementById('in-gallery-subtitle').value = siteTexts.gallerySubtitle;
             document.getElementById('in-form-title').value = siteTexts.formTitle;
             document.getElementById('in-form-subtitle').value = siteTexts.formSubtitle;
             document.getElementById('in-footer-title').value = siteTexts.footerTitle;
@@ -446,16 +685,18 @@
                 stat3Val: document.getElementById('in-stat-3-val').value.trim(),
                 stat3: document.getElementById('in-stat-3').value.trim(),
                 listHeading: document.getElementById('in-list-heading').value.trim(),
+                galleryTitle: document.getElementById('in-gallery-title').value.trim(),
+                gallerySubtitle: document.getElementById('in-gallery-subtitle').value.trim(),
                 formTitle: document.getElementById('in-form-title').value.trim(),
                 formSubtitle: document.getElementById('in-form-subtitle').value.trim(),
                 footerTitle: document.getElementById('in-footer-title').value.trim(),
                 footerOrg: document.getElementById('in-footer-org').value.trim(),
                 footerCopy: document.getElementById('in-footer-copy').value.trim()
             };
-            localStorage.setItem('ward6_site_texts_v1', JSON.stringify(siteTexts));
+            localStorage.setItem('ward6_site_texts_v2', JSON.stringify(siteTexts));
             ওয়েবসাইট_লেখা_প্রয়োগ();
             লেখা_এডিট_মোডাল_বন্ধ();
-            alert("ওয়েবসাইটের সব লেখা সফলভাবে পরিবর্তন হয়েছে! সবার মোবাইলে স্থায়ী করতে 'GitHub কোড কপি করুন' বাটনে ক্লিক করে GitHub-এ সেভ করুন।");
+            alert("ওয়েবসাইটের সব লেখা সফলভাবে পরিবর্তন হয়েছে!");
         });
 
         // অ্যাডমিন লগইন / লগআউট
@@ -469,6 +710,7 @@
                     sessionStorage.setItem('ward6_admin_logged', 'true');
                     অ্যাডমিন_অবস্থা_আপডেট();
                     তালিকা_দেখান();
+                    গ্যালারি_দেখান();
                     alert("স্বাগতম স্যার! অ্যাডমিন প্যানেল চালু হয়েছে।");
                 } else if (ইনপুট_পাসওয়ার্ড !== null) {
                     alert("দুঃখিত, পাসওয়ার্ড সঠিক নয়!");
@@ -481,6 +723,7 @@
             sessionStorage.removeItem('ward6_admin_logged');
             অ্যাডমিন_অবস্থা_আপডেট();
             তালিকা_দেখান();
+            গ্যালারি_দেখান();
         }
 
         function অ্যাডমিন_অবস্থা_আপডেট() {
@@ -543,11 +786,10 @@
             }
         });
 
-        // GitHub-এ স্থায়ীভাবে সেভ করার জন্য লেখা ও ডোনার ডেটা এক্সপোর্ট
         function ডেটা_এক্সপোর্ট_করুন() {
-            const codeText = `const স্থায়ী_ওয়েবসাইট_লেখা = ${JSON.stringify(siteTexts, null, 4)};\n\nconst স্থায়ী_রক্তদাতা_তালিকা = ${JSON.stringify(donors, null, 4)};`;
+            const codeText = `const স্থায়ী_ওয়েবসাইট_লেখা = ${JSON.stringify(siteTexts, null, 4)};\n\nconst স্থায়ী_রক্তদাতা_তালিকা = ${JSON.stringify(donors, null, 4)};\n\nconst স্থায়ী_গ্যালারি_তালিকা = ${JSON.stringify(galleryItems, null, 4)};`;
             navigator.clipboard.writeText(codeText);
-            alert("আপডেট করা সব লেখা এবং রক্তদাতার তালিকা কপি হয়েছে! এখন GitHub-এর index.html ফাইলে গিয়ে 'const স্থায়ী_ওয়েবসাইট_লেখা' থেকে 'const স্থায়ী_রক্তদাতা_তালিকা = [...];' পর্যন্ত অংশটির বদলে এটি পেস্ট করে সেভ করলেই সবার মোবাইলে স্থায়ী হয়ে যাবে।");
+            alert("আপডেট করা সব লেখা, রক্তদাতার তালিকা এবং গ্যালারির ডেটা কপি হয়েছে! এখন GitHub-এর index.html ফাইলে পেস্ট করে সেভ করলেই সবার মোবাইলে স্থায়ী হয়ে যাবে।");
         }
 
         function ছবির_লিংক_তৈরি(donor) {
@@ -766,6 +1008,7 @@
         ওয়েবসাইট_লেখা_প্রয়োগ();
         অ্যাডমিন_অবস্থা_আপডেট();
         তালিকা_দেখান();
+        গ্যালারি_দেখান();
     </script>
 </body>
 </html>
