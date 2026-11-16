@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক | উত্তর পাতলী, পি.এম.খালী</title>
+    <title id="page-title">রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক | উত্তর পাতলী, পি.এম.খালী</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -25,15 +25,15 @@
             <div class="flex items-center space-x-3">
                 <div class="bg-white text-red-700 w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl shadow">🩸</div>
                 <div>
-                    <h1 class="text-lg md:text-2xl font-bold leading-tight">রক্তের বন্ধন - ৬নং ওয়ার্ড</h1>
-                    <p class="text-xs text-red-100">উত্তর পাতলী, পি.এম.খালী, কক্সবাজার সদর</p>
+                    <h1 id="txt-site-title" class="text-lg md:text-2xl font-bold leading-tight">রক্তের বন্ধন - ৬নং ওয়ার্ড</h1>
+                    <p id="txt-site-subtitle" class="text-xs text-red-100">উত্তর পাতলী, পি.এম.খালী, কক্সবাজার সদর</p>
                 </div>
             </div>
             <div class="flex items-center gap-2">
                 <button onclick="সাইট_শেয়ার_করুন()" class="bg-red-800 hover:bg-red-900 text-white border border-red-500 px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition flex items-center gap-1">
                     <span>🔗</span> শেয়ার
                 </button>
-                <a href="#register-section" class="bg-white text-red-700 hover:bg-red-50 font-bold px-3.5 py-2 rounded-lg text-xs md:text-sm shadow transition">
+                <a href="#register-section" id="txt-reg-btn" class="bg-white text-red-700 hover:bg-red-50 font-bold px-3.5 py-2 rounded-lg text-xs md:text-sm shadow transition">
                     + রক্তদাতা হোন
                 </a>
                 <button id="admin-toggle-btn" onclick="অ্যাডমিন_বাটন_ক্লিক()" class="bg-gray-900 hover:bg-black text-amber-300 border border-gray-700 px-3 py-2 rounded-lg text-xs md:text-sm font-semibold transition flex items-center gap-1">
@@ -43,16 +43,19 @@
         </div>
     </header>
 
-    <!-- ================= অ্যাডমিন কন্ট্রোল বার (লগইন করলে দেখা যাবে) ================= -->
+    <!-- ================= অ্যাডমিন কন্ট্রোল বার ================= -->
     <div id="admin-panel-bar" class="hidden bg-gray-900 text-white border-b-4 border-amber-400 px-4 py-4 shadow-xl">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
-                <span class="bg-amber-400 text-gray-900 text-xs font-bold px-2.5 py-0.5 rounded uppercase">অ্যাডমিন মোড চালু</span>
-                <p class="text-sm text-gray-300 mt-1">নিচের কার্ডগুলো থেকে যেকোনো ডোনারের তথ্য এডিট বা মুছতে পারবেন। স্থায়ীভাবে সেভ করতে ডানপাশের বাটনে ক্লিক করে কোড কপি করুন।</p>
+                <span class="bg-amber-400 text-gray-900 text-xs font-bold px-2.5 py-0.5 rounded uppercase">অ্যাডমিন প্যানেল চালু</span>
+                <p class="text-sm text-gray-300 mt-1">ওয়েবসাইটের যেকোনো লেখা বা রক্তদাতার তথ্য পরিবর্তন করে ডানপাশের বাটনে ক্লিক করে GitHub-এর জন্য কোড কপি করুন।</p>
             </div>
             <div class="flex flex-wrap items-center gap-2 shrink-0">
+                <button onclick="লেখা_এডিট_মোডাল_খুলুন()" class="bg-amber-500 hover:bg-amber-600 text-gray-900 px-4 py-2 rounded-lg text-xs md:text-sm font-bold shadow transition">
+                    ✏️ ওয়েবসাইটের লেখা এডিট করুন
+                </button>
                 <button onclick="ডেটা_এক্সপোর্ট_করুন()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-xs md:text-sm font-bold shadow transition">
-                    📋 GitHub-এর জন্য ডেটা কপি করুন
+                    📋 GitHub কোড কপি করুন
                 </button>
                 <button onclick="অ্যাডমিন_লগআউট()" class="bg-red-600 hover:bg-red-700 text-white px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition">
                     লগআউট
@@ -64,24 +67,24 @@
     <!-- ================= ব্যানার ও পরিসংখ্যান অংশ ================= -->
     <section class="bg-gradient-to-br from-red-800 via-red-700 to-red-600 text-white pt-10 pb-16 px-4 text-center">
         <div class="max-w-3xl mx-auto">
-            <span class="bg-white/15 text-red-50 text-xs font-semibold px-3.5 py-1 rounded-full tracking-wide border border-white/20">
+            <span id="txt-hero-badge" class="bg-white/15 text-red-50 text-xs font-semibold px-3.5 py-1 rounded-full tracking-wide border border-white/20">
                 যুব ও ক্রীড়া বিভাগ, ৬নং ওয়ার্ড উদ্যোগ
             </span>
-            <h2 class="text-2xl md:text-4xl font-bold mt-4 mb-2">এক ব্যাগ রক্ত, বাঁচাতে পারে একটি প্রাণ</h2>
-            <p class="text-red-100 text-sm md:text-base mb-6">জরুরি প্রয়োজনে আমাদের ৬নং ওয়ার্ডের স্বেচ্ছাসেবী রক্তদাতাদের সাথে সরাসরি যোগাযোগ করুন।</p>
+            <h2 id="txt-hero-heading" class="text-2xl md:text-4xl font-bold mt-4 mb-2">এক ব্যাগ রক্ত, বাঁচাতে পারে একটি প্রাণ</h2>
+            <p id="txt-hero-desc" class="text-red-100 text-sm md:text-base mb-6">জরুরি প্রয়োজনে আমাদের ৬নং ওয়ার্ডের স্বেচ্ছাসেবী রক্তদাতাদের সাথে সরাসরি যোগাযোগ করুন।</p>
             
             <div class="grid grid-cols-3 gap-3 max-w-md mx-auto bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/20 shadow-inner">
                 <div>
                     <div id="total-donors" class="text-2xl md:text-3xl font-bold">০</div>
-                    <div class="text-xs text-red-100">মোট রক্তদাতা</div>
+                    <div id="txt-stat-1" class="text-xs text-red-100">মোট রক্তদাতা</div>
                 </div>
                 <div class="border-x border-white/20">
                     <div id="available-donors" class="text-2xl md:text-3xl font-bold text-green-300">০</div>
-                    <div class="text-xs text-red-100">রক্তদানে প্রস্তুত</div>
+                    <div id="txt-stat-2" class="text-xs text-red-100">রক্তদানে প্রস্তুত</div>
                 </div>
                 <div>
-                    <div class="text-2xl md:text-3xl font-bold text-amber-200">২৪/৭</div>
-                    <div class="text-xs text-red-100">জরুরি সেবা</div>
+                    <div id="txt-stat-3-val" class="text-2xl md:text-3xl font-bold text-amber-200">২৪/৭</div>
+                    <div id="txt-stat-3" class="text-xs text-red-100">জরুরি সেবা</div>
                 </div>
             </div>
         </div>
@@ -91,7 +94,7 @@
     <main class="max-w-6xl mx-auto px-4 py-8">
         <div class="bg-white p-5 md:p-6 rounded-2xl shadow-md border border-red-100 -mt-14 relative z-10">
             <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
-                <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                <h3 id="txt-search-title" class="text-lg font-bold text-gray-800 flex items-center gap-2">
                     <span>🔍</span> রক্তদাতা খুঁজুন
                 </h3>
                 <button onclick="ফিল্টার_রিসেট()" class="text-xs text-red-600 hover:underline font-medium">সব ফিল্টার মুছুন</button>
@@ -130,7 +133,7 @@
         <!-- ================= রক্তদাতাদের তালিকা প্রদর্শনের জায়গা ================= -->
         <div class="mt-8">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-gray-800">তালিকাভুক্ত রক্তদাতাগণ</h3>
+                <h3 id="txt-list-heading" class="text-xl font-bold text-gray-800">তালিকাভুক্ত রক্তদাতাগণ</h3>
                 <span id="showing-count" class="text-sm bg-white px-3 py-1 rounded-full border border-gray-200 text-gray-600 font-medium"></span>
             </div>
             
@@ -140,8 +143,8 @@
         <!-- ================= নতুন রক্তদাতা নিবন্ধন ফর্ম ================= -->
         <section id="register-section" class="mt-14 bg-white rounded-2xl shadow-md border border-red-100 overflow-hidden">
             <div class="bg-red-700 text-white px-6 py-4">
-                <h3 class="text-xl font-bold">নতুন রক্তদাতা হিসেবে নিবন্ধন করুন</h3>
-                <p class="text-sm text-red-100">৬নং ওয়ার্ডের বাসিন্দা হলে নিচের তথ্য দিয়ে তালিকায় যুক্ত হোন</p>
+                <h3 id="txt-form-title" class="text-xl font-bold">নতুন রক্তদাতা হিসেবে নিবন্ধন করুন</h3>
+                <p id="txt-form-subtitle" class="text-sm text-red-100">৬নং ওয়ার্ডের বাসিন্দা হলে নিচের তথ্য দিয়ে তালিকায় যুক্ত হোন</p>
             </div>
             <form id="donor-form" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
@@ -190,7 +193,105 @@
         </section>
     </main>
 
-    <!-- ================= অ্যাডমিন এডিট পপ-আপ মোডাল ================= -->
+    <!-- ================= নিচের ফুটার অংশ ================= -->
+    <footer class="bg-gray-900 text-gray-300 py-8 px-4 mt-12 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h4 id="txt-footer-title" class="text-white font-bold text-lg">রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক</h4>
+            <p id="txt-footer-org" class="text-sm text-gray-400 mt-1">পরিচালনায়: যুব ও ক্রীড়া বিভাগ, ৬নং ওয়ার্ড, পি.এম.খালী, কক্সবাজার সদর</p>
+            <p id="txt-footer-copy" class="text-xs text-gray-500 mt-4">© ২০২৬ সর্বস্বত্ব সংরক্ষিত | মানবতার সেবায় আমরা সর্বদা প্রস্তুত</p>
+        </div>
+    </footer>
+
+    <!-- ================= অ্যাডমিন: ওয়েবসাইটের লেখা এডিট মোডাল ================= -->
+    <div id="text-edit-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-gray-200 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b pb-3 mb-4 sticky top-0 bg-white">
+                <h3 class="text-lg font-bold text-gray-900">✏️ ওয়েবসাইটের সব লেখা পরিবর্তন করুন</h3>
+                <button onclick="লেখা_এডিট_মোডাল_বন্ধ()" class="text-gray-400 hover:text-gray-700 font-bold text-2xl">&times;</button>
+            </div>
+            <form id="site-text-form" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">ওয়েবসাইটের মূল নাম (হেডার)</label>
+                        <input type="text" id="in-site-title" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">হেডারের নিচের ঠিকানা</label>
+                        <input type="text" id="in-site-subtitle" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">উপরের নিবন্ধন বাটনের লেখা</label>
+                        <input type="text" id="in-reg-btn" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">ব্যানারের ছোট ব্যাজ লেখা</label>
+                        <input type="text" id="in-hero-badge" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">ব্যানারের মূল স্লোগান (বড় শিরোনাম)</label>
+                    <input type="text" id="in-hero-heading" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">ব্যানারের নিচের বিবরণ</label>
+                    <textarea id="in-hero-desc" rows="2" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm"></textarea>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">পরিসংখ্যান ১ লেবেল</label>
+                        <input type="text" id="in-stat-1" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">পরিসংখ্যান ২ লেবেল</label>
+                        <input type="text" id="in-stat-2" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">পরিসংখ্যান ৩ (সংখ্যা ও লেবেল)</label>
+                        <div class="flex gap-1">
+                            <input type="text" id="in-stat-3-val" required class="w-1/3 border border-gray-300 rounded-lg px-2 py-2 text-sm">
+                            <input type="text" id="in-stat-3" required class="w-2/3 border border-gray-300 rounded-lg px-2 py-2 text-sm">
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">ডোনার তালিকার শিরোনাম</label>
+                        <input type="text" id="in-list-heading" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">নিবন্ধন ফর্মের শিরোনাম</label>
+                        <input type="text" id="in-form-title" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">নিবন্ধন ফর্মের উপ-শিরোনাম</label>
+                    <input type="text" id="in-form-subtitle" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">ফুটারের মূল নাম</label>
+                        <input type="text" id="in-footer-title" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">ফুটার কপিরাইট লেখা</label>
+                        <input type="text" id="in-footer-copy" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">ফুটার পরিচালনাকারী তথ্য</label>
+                    <input type="text" id="in-footer-org" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div class="flex justify-end gap-2 pt-3 border-t">
+                    <button type="button" onclick="লেখা_এডিট_মোডাল_বন্ধ()" class="px-4 py-2 rounded-lg text-sm font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700">বাতিল</button>
+                    <button type="submit" class="px-5 py-2 rounded-lg text-sm font-bold bg-red-600 hover:bg-red-700 text-white">সব লেখা সেভ করুন</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= অ্যাডমিন: ডোনার এডিট পপ-আপ মোডাল ================= -->
     <div id="edit-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-gray-200">
             <div class="flex justify-between items-center border-b pb-3 mb-4">
@@ -244,22 +345,32 @@
         </div>
     </div>
 
-    <!-- ================= নিচের ফুটার অংশ ================= -->
-    <footer class="bg-gray-900 text-gray-300 py-8 px-4 mt-12 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h4 class="text-white font-bold text-lg">রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক</h4>
-            <p class="text-sm text-gray-400 mt-1">পরিচালনায়: যুব ও ক্রীড়া বিভাগ, ৬নং ওয়ার্ড, পি.এম.খালী, কক্সবাজার সদর</p>
-            <p class="text-xs text-gray-500 mt-4">© ২০২৬ সর্বস্বত্ব সংরক্ষিত | মানবতার সেবায় আমরা সর্বদা প্রস্তুত</p>
-        </div>
-    </footer>
-
     <!-- ========================================================================= -->
     <!-- মূল ডেটা ও অ্যাডমিন প্রোগ্রামিং অংশ -->
     <!-- ========================================================================= -->
     <script>
-        // অ্যাডমিন পাসওয়ার্ড (আপনি চাইলে এটি পরিবর্তন করতে পারেন)
         const অ্যাডমিন_পাসওয়ার্ড = "ward6admin";
         let অ্যাডমিন_লগইন_আছে = sessionStorage.getItem('ward6_admin_logged') === 'true';
+
+        // ওয়েবসাইটের স্থায়ী লেখাসমূহ
+        const স্থায়ী_ওয়েবসাইট_লেখা = {
+            siteTitle: "রক্তের বন্ধন - ৬নং ওয়ার্ড",
+            siteSubtitle: "উত্তর পাতলী, পি.এম.খালী, কক্সবাজার সদর",
+            regBtn: "+ রক্তদাতা হোন",
+            heroBadge: "যুব ও ক্রীড়া বিভাগ, ৬নং ওয়ার্ড উদ্যোগ",
+            heroHeading: "এক ব্যাগ রক্ত, বাঁচাতে পারে একটি প্রাণ",
+            heroDesc: "জরুরি প্রয়োজনে আমাদের ৬নং ওয়ার্ডের স্বেচ্ছাসেবী রক্তদাতাদের সাথে সরাসরি যোগাযোগ করুন।",
+            stat1: "মোট রক্তদাতা",
+            stat2: "রক্তদানে প্রস্তুত",
+            stat3Val: "২৪/৭",
+            stat3: "জরুরি সেবা",
+            listHeading: "তালিকাভুক্ত রক্তদাতাগণ",
+            formTitle: "নতুন রক্তদাতা হিসেবে নিবন্ধন করুন",
+            formSubtitle: "৬নং ওয়ার্ডের বাসিন্দা হলে নিচের তথ্য দিয়ে তালিকায় যুক্ত হোন",
+            footerTitle: "রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক",
+            footerOrg: "পরিচালনায়: যুব ও ক্রীড়া বিভাগ, ৬নং ওয়ার্ড, পি.এম.খালী, কক্সবাজার সদর",
+            footerCopy: "© ২০২৬ সর্বস্বত্ব সংরক্ষিত | মানবতার সেবায় আমরা সর্বদা প্রস্তুত"
+        };
 
         // স্থায়ী রক্তদাতা তালিকা
         const স্থায়ী_রক্তদাতা_তালিকা = [
@@ -271,10 +382,83 @@
             { id: 6, name: "নুরুল আবছার", group: "B-", phone: "01800000006", area: "উত্তর পাতলী পশ্চিম পাড়া", lastDate: "", photo: "" }
         ];
 
+        let siteTexts = JSON.parse(localStorage.getItem('ward6_site_texts_v1')) || স্থায়ী_ওয়েবসাইট_লেখা;
         let donors = JSON.parse(localStorage.getItem('ward6_donors_admin_v1')) || স্থায়ী_রক্তদাতা_তালিকা;
         let নির্বাচিত_ছবি_ডেটা = "";
 
-        // অ্যাডমিন লগইন / লগআউট ফাংশন
+        // ওয়েবসাইটের লেখাগুলো স্ক্রিনে বসানো
+        function ওয়েবসাইট_লেখা_প্রয়োগ() {
+            document.title = `${siteTexts.siteTitle} | ${siteTexts.siteSubtitle}`;
+            document.getElementById('txt-site-title').innerText = siteTexts.siteTitle;
+            document.getElementById('txt-site-subtitle').innerText = siteTexts.siteSubtitle;
+            document.getElementById('txt-reg-btn').innerText = siteTexts.regBtn;
+            document.getElementById('txt-hero-badge').innerText = siteTexts.heroBadge;
+            document.getElementById('txt-hero-heading').innerText = siteTexts.heroHeading;
+            document.getElementById('txt-hero-desc').innerText = siteTexts.heroDesc;
+            document.getElementById('txt-stat-1').innerText = siteTexts.stat1;
+            document.getElementById('txt-stat-2').innerText = siteTexts.stat2;
+            document.getElementById('txt-stat-3-val').innerText = siteTexts.stat3Val;
+            document.getElementById('txt-stat-3').innerText = siteTexts.stat3;
+            document.getElementById('txt-list-heading').innerText = siteTexts.listHeading;
+            document.getElementById('txt-form-title').innerText = siteTexts.formTitle;
+            document.getElementById('txt-form-subtitle').innerText = siteTexts.formSubtitle;
+            document.getElementById('txt-footer-title').innerText = siteTexts.footerTitle;
+            document.getElementById('txt-footer-org').innerText = siteTexts.footerOrg;
+            document.getElementById('txt-footer-copy').innerText = siteTexts.footerCopy;
+        }
+
+        // লেখা এডিট মোডাল খোলা ও বন্ধ করা
+        function লেখা_এডিট_মোডাল_খুলুন() {
+            document.getElementById('in-site-title').value = siteTexts.siteTitle;
+            document.getElementById('in-site-subtitle').value = siteTexts.siteSubtitle;
+            document.getElementById('in-reg-btn').value = siteTexts.regBtn;
+            document.getElementById('in-hero-badge').value = siteTexts.heroBadge;
+            document.getElementById('in-hero-heading').value = siteTexts.heroHeading;
+            document.getElementById('in-hero-desc').value = siteTexts.heroDesc;
+            document.getElementById('in-stat-1').value = siteTexts.stat1;
+            document.getElementById('in-stat-2').value = siteTexts.stat2;
+            document.getElementById('in-stat-3-val').value = siteTexts.stat3Val;
+            document.getElementById('in-stat-3').value = siteTexts.stat3;
+            document.getElementById('in-list-heading').value = siteTexts.listHeading;
+            document.getElementById('in-form-title').value = siteTexts.formTitle;
+            document.getElementById('in-form-subtitle').value = siteTexts.formSubtitle;
+            document.getElementById('in-footer-title').value = siteTexts.footerTitle;
+            document.getElementById('in-footer-org').value = siteTexts.footerOrg;
+            document.getElementById('in-footer-copy').value = siteTexts.footerCopy;
+            document.getElementById('text-edit-modal').classList.remove('hidden');
+        }
+
+        function লেখা_এডিট_মোডাল_বন্ধ() {
+            document.getElementById('text-edit-modal').classList.add('hidden');
+        }
+
+        document.getElementById('site-text-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            siteTexts = {
+                siteTitle: document.getElementById('in-site-title').value.trim(),
+                siteSubtitle: document.getElementById('in-site-subtitle').value.trim(),
+                regBtn: document.getElementById('in-reg-btn').value.trim(),
+                heroBadge: document.getElementById('in-hero-badge').value.trim(),
+                heroHeading: document.getElementById('in-hero-heading').value.trim(),
+                heroDesc: document.getElementById('in-hero-desc').value.trim(),
+                stat1: document.getElementById('in-stat-1').value.trim(),
+                stat2: document.getElementById('in-stat-2').value.trim(),
+                stat3Val: document.getElementById('in-stat-3-val').value.trim(),
+                stat3: document.getElementById('in-stat-3').value.trim(),
+                listHeading: document.getElementById('in-list-heading').value.trim(),
+                formTitle: document.getElementById('in-form-title').value.trim(),
+                formSubtitle: document.getElementById('in-form-subtitle').value.trim(),
+                footerTitle: document.getElementById('in-footer-title').value.trim(),
+                footerOrg: document.getElementById('in-footer-org').value.trim(),
+                footerCopy: document.getElementById('in-footer-copy').value.trim()
+            };
+            localStorage.setItem('ward6_site_texts_v1', JSON.stringify(siteTexts));
+            ওয়েবসাইট_লেখা_প্রয়োগ();
+            লেখা_এডিট_মোডাল_বন্ধ();
+            alert("ওয়েবসাইটের সব লেখা সফলভাবে পরিবর্তন হয়েছে! সবার মোবাইলে স্থায়ী করতে 'GitHub কোড কপি করুন' বাটনে ক্লিক করে GitHub-এ সেভ করুন।");
+        });
+
+        // অ্যাডমিন লগইন / লগআউট
         function অ্যাডমিন_বাটন_ক্লিক() {
             if (অ্যাডমিন_লগইন_আছে) {
                 document.getElementById('admin-panel-bar').scrollIntoView({ behavior: 'smooth' });
@@ -313,7 +497,6 @@
             }
         }
 
-        // ডোনার ডিলিট করা
         function ডোনার_মুছুন(id) {
             if (confirm("আপনি কি নিশ্চিতভাবে এই রক্তদাতাকে তালিকা থেকে মুছে ফেলতে চান?")) {
                 donors = donors.filter(d => d.id !== id);
@@ -322,7 +505,6 @@
             }
         }
 
-        // ডোনার এডিট মোডাল খোলা
         function ডোনার_এডিট_খুলুন(id) {
             const donor = donors.find(d => d.id === id);
             if (!donor) return;
@@ -361,11 +543,11 @@
             }
         });
 
-        // GitHub-এ স্থায়ীভাবে সেভ করার জন্য কোড এক্সপোর্ট
+        // GitHub-এ স্থায়ীভাবে সেভ করার জন্য লেখা ও ডোনার ডেটা এক্সপোর্ট
         function ডেটা_এক্সপোর্ট_করুন() {
-            const codeText = `const স্থায়ী_রক্তদাতা_তালিকা = ${JSON.stringify(donors, null, 4)};`;
+            const codeText = `const স্থায়ী_ওয়েবসাইট_লেখা = ${JSON.stringify(siteTexts, null, 4)};\n\nconst স্থায়ী_রক্তদাতা_তালিকা = ${JSON.stringify(donors, null, 4)};`;
             navigator.clipboard.writeText(codeText);
-            alert("আপডেট করা সম্পূর্ণ তালিকা কপি হয়েছে! এখন GitHub-এর index.html ফাইলে গিয়ে 'const স্থায়ী_রক্তদাতা_তালিকা = [...];' অংশটির বদলে এটি পেস্ট করে সেভ করলেই সবার মোবাইলে স্থায়ীভাবে আপডেট হয়ে যাবে।");
+            alert("আপডেট করা সব লেখা এবং রক্তদাতার তালিকা কপি হয়েছে! এখন GitHub-এর index.html ফাইলে গিয়ে 'const স্থায়ী_ওয়েবসাইট_লেখা' থেকে 'const স্থায়ী_রক্তদাতা_তালিকা = [...];' পর্যন্ত অংশটির বদলে এটি পেস্ট করে সেভ করলেই সবার মোবাইলে স্থায়ী হয়ে যাবে।");
         }
 
         function ছবির_লিংক_তৈরি(donor) {
@@ -486,7 +668,6 @@
                 const waPhone = donor.phone.startsWith('0') ? '88' + donor.phone : donor.phone;
                 const waText = encodeURIComponent(`আসসালামু আলাইকুম ${donor.name}, ৬নং ওয়ার্ড ব্লাড ব্যাংক থেকে আপনার নম্বর পেয়েছি। জরুরি ভিত্তিতে ${donor.group} রক্তের প্রয়োজন।`);
 
-                // অ্যাডমিন লগইন থাকলে কার্ডে এডিট ও ডিলিট বাটন দেখাবে
                 const অ্যাডমিন_বাটন_অংশ = অ্যাডমিন_লগইন_আছে ? `
                     <div class="mt-3 pt-2.5 border-t border-dashed border-amber-300 bg-amber-50/70 -mx-5 -mb-5 px-5 py-2.5 rounded-b-2xl flex justify-between items-center">
                         <span class="text-[11px] font-bold text-amber-800">অ্যাডমিন নিয়ন্ত্রণ:</span>
@@ -546,7 +727,7 @@
             const url = window.location.href;
             if (navigator.share) {
                 navigator.share({
-                    title: 'রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক',
+                    title: siteTexts.siteTitle,
                     text: 'জরুরি প্রয়োজনে আমাদের ৬নং ওয়ার্ডের রক্তদাতাদের তালিকা দেখুন:',
                     url: url
                 });
@@ -582,6 +763,7 @@
         document.getElementById('search-input').addEventListener('input', তালিকা_দেখান);
         document.getElementById('only-available').addEventListener('change', তালিকা_দেখান);
 
+        ওয়েবসাইট_লেখা_প্রয়োগ();
         অ্যাডমিন_অবস্থা_আপডেট();
         তালিকা_দেখান();
     </script>
