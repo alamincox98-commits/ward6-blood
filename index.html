@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক | উত্তর পাতলী, পি.এম.খালী</title>
+    <title id="page-title">ব্লাড ডোনার সোসাইটি পি.এম.খালী ইউনিয়ন | পি.এম.খালী ইউনিয়ন, কক্সবাজার সদর</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -25,8 +25,8 @@
             <div class="flex items-center space-x-3">
                 <div class="bg-white text-red-700 w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl shadow">🩸</div>
                 <div>
-                    <h1 id="txt-site-title" class="text-lg md:text-2xl font-bold leading-tight">রক্তের বন্ধন - ৬নং ওয়ার্ড</h1>
-                    <p id="txt-site-subtitle" class="text-xs text-red-100">উত্তর পাতলী, পি.এম.খালী, কক্সবাজার সদর</p>
+                    <h1 id="txt-site-title" class="text-lg md:text-2xl font-bold leading-tight">ব্লাড ডোনার সোসাইটি পি.এম.খালী ইউনিয়ন</h1>
+                    <p id="txt-site-subtitle" class="text-xs text-red-100">পি.এম.খালী ইউনিয়ন, কক্সবাজার সদর</p>
                 </div>
             </div>
             <div class="flex flex-wrap items-center gap-2">
@@ -50,15 +50,12 @@
     <div id="admin-panel-bar" class="hidden bg-gray-900 text-white border-b-4 border-amber-400 px-4 py-4 shadow-xl">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
-                <span class="bg-amber-400 text-gray-900 text-xs font-bold px-2.5 py-0.5 rounded uppercase">অ্যাডমিন প্যানেল চালু</span>
-                <p class="text-sm text-gray-300 mt-1">ওয়েবসাইটের যেকোনো লেখা, রক্তদাতার তথ্য বা গ্যালারির ছবি নিয়ন্ত্রণ করুন। স্থায়ীভাবে সেভ করতে GitHub কোড কপি করুন।</p>
+                <span class="bg-amber-400 text-gray-900 text-xs font-bold px-2.5 py-0.5 rounded uppercase">লাইভ অ্যাডমিন প্যানেল</span>
+                <p class="text-sm text-gray-300 mt-1">এখান থেকে যেকোনো লেখা, রক্তদাতার তথ্য বা গ্যালারি পরিবর্তন করলে তা স্বয়ংক্রিয়ভাবে সবার মোবাইলে আপডেট হয়ে যাবে।</p>
             </div>
             <div class="flex flex-wrap items-center gap-2 shrink-0">
                 <button onclick="লেখা_এডিট_মোডাল_খুলুন()" class="bg-amber-500 hover:bg-amber-600 text-gray-900 px-4 py-2 rounded-lg text-xs md:text-sm font-bold shadow transition">
                     ✏️ ওয়েবসাইটের লেখা এডিট করুন
-                </button>
-                <button onclick="ডেটা_এক্সপোর্ট_করুন()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-xs md:text-sm font-bold shadow transition">
-                    📋 GitHub কোড কপি করুন
                 </button>
                 <button onclick="অ্যাডমিন_লগআউট()" class="bg-red-600 hover:bg-red-700 text-white px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition">
                     লগআউট
@@ -67,14 +64,19 @@
         </div>
     </div>
 
+    <!-- ================= ডেটাবেস স্ট্যাটাস ব্যানার ================= -->
+    <div id="db-warning-banner" class="hidden bg-amber-100 border-b border-amber-300 text-amber-900 px-4 py-2.5 text-center text-xs md:text-sm font-medium">
+        ⚠️ অনলাইন লাইভ সিঙ্ক চালু করতে কোডের <code>FIREBASE_DB_URL</code> অংশে আপনার Firebase লিংকটি বসান।
+    </div>
+
     <!-- ================= ব্যানার ও পরিসংখ্যান অংশ ================= -->
     <section class="bg-gradient-to-br from-red-800 via-red-700 to-red-600 text-white pt-10 pb-16 px-4 text-center">
         <div class="max-w-3xl mx-auto">
             <span id="txt-hero-badge" class="bg-white/15 text-red-50 text-xs font-semibold px-3.5 py-1 rounded-full tracking-wide border border-white/20">
-                যুব ও ক্রীড়া বিভাগ, ৬নং ওয়ার্ড উদ্যোগ
+                পি.এম.খালী ইউনিয়ন স্বেচ্ছাসেবী উদ্যোগ
             </span>
             <h2 id="txt-hero-heading" class="text-2xl md:text-4xl font-bold mt-4 mb-2">এক ব্যাগ রক্ত, বাঁচাতে পারে একটি প্রাণ</h2>
-            <p id="txt-hero-desc" class="text-red-100 text-sm md:text-base mb-6">জরুরি প্রয়োজনে আমাদের ৬নং ওয়ার্ডের স্বেচ্ছাসেবী রক্তদাতাদের সাথে সরাসরি যোগাযোগ করুন।</p>
+            <p id="txt-hero-desc" class="text-red-100 text-sm md:text-base mb-6">জরুরি প্রয়োজনে আমাদের পি.এম.খালী ইউনিয়নের স্বেচ্ছাসেবী রক্তদাতাদের সাথে সরাসরি যোগাযোগ করুন।</p>
             
             <div class="grid grid-cols-3 gap-3 max-w-md mx-auto bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/20 shadow-inner">
                 <div>
@@ -97,7 +99,7 @@
     <main class="max-w-6xl mx-auto px-4 py-8">
         <div class="bg-white p-5 md:p-6 rounded-2xl shadow-md border border-red-100 -mt-14 relative z-10">
             <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
-                <h3 id="txt-search-title" class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
                     <span>🔍</span> রক্তদাতা খুঁজুন
                 </h3>
                 <button onclick="ফিল্টার_রিসেট()" class="text-xs text-red-600 hover:underline font-medium">সব ফিল্টার মুছুন</button>
@@ -121,8 +123,8 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">এলাকা / পাড়া বা নাম লিখুন</label>
-                    <input type="text" id="search-input" placeholder="যেমন: উত্তর পাতলী, আল আমিন..." class="w-full border border-gray-300 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">এলাকা / ওয়ার্ড বা নাম লিখুন</label>
+                    <input type="text" id="search-input" placeholder="যেমন: পি.এম.খালী ইউনিয়ন, আল আমিন..." class="w-full border border-gray-300 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-red-500">
                 </div>
                 <div class="flex items-end">
                     <label class="flex items-center space-x-2.5 cursor-pointer bg-red-50 hover:bg-red-100/70 transition w-full p-2.5 rounded-lg border border-red-200">
@@ -137,7 +139,7 @@
         <div class="mt-8">
             <div class="flex justify-between items-center mb-4">
                 <h3 id="txt-list-heading" class="text-xl font-bold text-gray-800">তালিকাভুক্ত রক্তদাতাগণ</h3>
-                <span id="showing-count" class="text-sm bg-white px-3 py-1 rounded-full border border-gray-200 text-gray-600 font-medium"></span>
+                <span id="showing-count" class="text-sm bg-white px-3 py-1 rounded-full border border-gray-200 text-gray-600 font-medium">লোড হচ্ছে...</span>
             </div>
             
             <div id="donor-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
@@ -150,14 +152,13 @@
                     <h3 id="txt-gallery-title" class="text-xl font-bold text-gray-900 flex items-center gap-2">
                         <span>📸</span> রক্তদানের মুহূর্ত (গ্যালারি)
                     </h3>
-                    <p id="txt-gallery-subtitle" class="text-sm text-gray-500 mt-0.5">আমাদের ৬নং ওয়ার্ডের বীর রক্তদাতাদের রক্তদানের কিছু স্মরণীয় মুহূর্ত</p>
+                    <p id="txt-gallery-subtitle" class="text-sm text-gray-500 mt-0.5">আমাদের পি.এম.খালী ইউনিয়নের বীর রক্তদাতাদের রক্তদানের কিছু স্মরণীয় মুহূর্ত</p>
                 </div>
                 <button onclick="গ্যালারি_ফর্ম_টগল()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-lg text-sm shadow transition flex items-center gap-1.5">
                     <span>+</span> রক্তদানের ছবি যুক্ত করুন
                 </button>
             </div>
 
-            <!-- গ্যালারিতে নতুন ছবি আপলোড করার ফর্ম (বাটনে ক্লিক করলে খুলবে) -->
             <div id="gallery-upload-box" class="hidden bg-red-50/70 border border-red-200 rounded-xl p-5 mb-6">
                 <h4 class="font-bold text-red-900 mb-3 text-base">নতুন রক্তদানের ছবি পোস্ট করুন</h4>
                 <form id="gallery-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -196,23 +197,20 @@
                         <img id="gal-preview" src="" alt="Preview" class="hidden h-16 w-24 object-cover rounded-lg border border-red-300">
                         <div class="flex gap-2 ml-auto">
                             <button type="button" onclick="গ্যালারি_ফর্ম_টগল()" class="px-4 py-2 rounded-lg text-sm font-semibold bg-gray-200 hover:bg-gray-300 text-gray-700">বাতিল</button>
-                            <button type="submit" class="px-5 py-2 rounded-lg text-sm font-bold bg-red-600 hover:bg-red-700 text-white shadow">গ্যালারিতে প্রকাশ করুন</button>
+                            <button type="submit" id="gal-submit-btn" class="px-5 py-2 rounded-lg text-sm font-bold bg-red-600 hover:bg-red-700 text-white shadow">গ্যালারিতে প্রকাশ করুন</button>
                         </div>
                     </div>
                 </form>
             </div>
 
-            <!-- গ্যালারির ছবিসমূহ -->
-            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                <!-- জাভাস্ক্রিপ্ট দিয়ে গ্যালারির ছবিগুলো এখানে বসবে -->
-            </div>
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
         </section>
 
         <!-- ================= নতুন রক্তদাতা নিবন্ধন ফর্ম ================= -->
         <section id="register-section" class="mt-14 bg-white rounded-2xl shadow-md border border-red-100 overflow-hidden">
             <div class="bg-red-700 text-white px-6 py-4">
                 <h3 id="txt-form-title" class="text-xl font-bold">নতুন রক্তদাতা হিসেবে নিবন্ধন করুন</h3>
-                <p id="txt-form-subtitle" class="text-sm text-red-100">৬নং ওয়ার্ডের বাসিন্দা হলে নিচের তথ্য দিয়ে তালিকায় যুক্ত হোন</p>
+                <p id="txt-form-subtitle" class="text-sm text-red-100">পি.এম.খালী ইউনিয়নের বাসিন্দা হলে নিচের তথ্য দিয়ে তালিকায় যুক্ত হোন</p>
             </div>
             <form id="donor-form" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
@@ -238,8 +236,8 @@
                     <input type="tel" id="donor-phone" required placeholder="018XXXXXXXX" class="w-full border border-gray-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-red-500 focus:outline-none">
                 </div>
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">গ্রাম / পাড়া *</label>
-                    <input type="text" id="donor-area" required value="উত্তর পাতলী, ৬নং ওয়ার্ড" class="w-full border border-gray-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-red-500 focus:outline-none">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">গ্রাম / ওয়ার্ড *</label>
+                    <input type="text" id="donor-area" required value="পি.এম.খালী ইউনিয়ন" class="w-full border border-gray-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-red-500 focus:outline-none">
                 </div>
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">সর্বশেষ রক্তদানের তারিখ (যদি দিয়ে থাকেন)</label>
@@ -253,7 +251,7 @@
                     </div>
                 </div>
                 <div class="md:col-span-2">
-                    <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition text-base">
+                    <button type="submit" id="donor-submit-btn" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition text-base">
                         তালিকায় যুক্ত হোন
                     </button>
                 </div>
@@ -264,13 +262,13 @@
     <!-- ================= নিচের ফুটার অংশ ================= -->
     <footer class="bg-gray-900 text-gray-300 py-8 px-4 mt-12 text-center">
         <div class="max-w-4xl mx-auto">
-            <h4 id="txt-footer-title" class="text-white font-bold text-lg">রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক</h4>
-            <p id="txt-footer-org" class="text-sm text-gray-400 mt-1">পরিচালনায়: যুব ও ক্রীড়া বিভাগ, ৬নং ওয়ার্ড, পি.এম.খালী, কক্সবাজার সদর</p>
+            <h4 id="txt-footer-title" class="text-white font-bold text-lg">ব্লাড ডোনার সোসাইটি পি.এম.খালী ইউনিয়ন</h4>
+            <p id="txt-footer-org" class="text-sm text-gray-400 mt-1">পরিচালনায় : পি.এম.খালী ইউনিয়ন, কক্সবাজার সদর।</p>
             <p id="txt-footer-copy" class="text-xs text-gray-500 mt-4">© ২০২৬ সর্বস্বত্ব সংরক্ষিত | মানবতার সেবায় আমরা সর্বদা প্রস্তুত</p>
         </div>
     </footer>
 
-    <!-- ================= গ্যালারির ছবি বড় করে দেখার মোডাল (Lightbox) ================= -->
+    <!-- ================= গ্যালারির ছবি বড় করে দেখার মোডাল ================= -->
     <div id="lightbox-modal" onclick="লাইটবক্স_বন্ধ()" class="hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
         <div class="max-w-3xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
             <div class="relative bg-black flex justify-center">
@@ -380,7 +378,7 @@
                 </div>
                 <div class="flex justify-end gap-2 pt-3 border-t">
                     <button type="button" onclick="লেখা_এডিট_মোডাল_বন্ধ()" class="px-4 py-2 rounded-lg text-sm font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700">বাতিল</button>
-                    <button type="submit" class="px-5 py-2 rounded-lg text-sm font-bold bg-red-600 hover:bg-red-700 text-white">সব লেখা সেভ করুন</button>
+                    <button type="submit" id="text-save-btn" class="px-5 py-2 rounded-lg text-sm font-bold bg-red-600 hover:bg-red-700 text-white">সব লেখা লাইভ সেভ করুন</button>
                 </div>
             </form>
         </div>
@@ -419,7 +417,7 @@
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">গ্রাম / পাড়া</label>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">গ্রাম / ওয়ার্ড</label>
                     <input type="text" id="edit-area" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
                 </div>
                 <div class="grid grid-cols-2 gap-3">
@@ -434,53 +432,55 @@
                 </div>
                 <div class="flex justify-end gap-2 pt-3 border-t">
                     <button type="button" onclick="এডিট_মোডাল_বন্ধ()" class="px-4 py-2 rounded-lg text-sm font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700">বাতিল</button>
-                    <button type="submit" class="px-4 py-2 rounded-lg text-sm font-bold bg-red-600 hover:bg-red-700 text-white">আপডেট সেভ করুন</button>
+                    <button type="submit" id="edit-save-btn" class="px-4 py-2 rounded-lg text-sm font-bold bg-red-600 hover:bg-red-700 text-white">আপডেট লাইভ সেভ করুন</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- ========================================================================= -->
-    <!-- মূল ডেটা ও অ্যাডমিন প্রোগ্রামিং অংশ -->
+    <!-- মূল ডেটা ও Firebase লাইভ সিঙ্ক প্রোগ্রামিং অংশ -->
     <!-- ========================================================================= -->
     <script>
+        // =========================================================================
+        // নিচের কোটেশনের ভেতরে আপনার কপি করা Firebase Realtime Database লিংকটি বসান
+        // =========================================================================
+        const FIREBASE_DB_URL = ""; 
+
         const অ্যাডমিন_পাসওয়ার্ড = "ward6admin";
         let অ্যাডমিন_লগইন_আছে = sessionStorage.getItem('ward6_admin_logged') === 'true';
 
-        // ওয়েবসাইটের স্থায়ী লেখাসমূহ
-        const স্থায়ী_ওয়েবসাইট_লেখা = {
-            siteTitle: "রক্তের বন্ধন - ৬নং ওয়ার্ড",
-            siteSubtitle: "উত্তর পাতলী, পি.এম.খালী, কক্সবাজার সদর",
+        // ডিফল্ট লেখাসমূহ
+        const ডিফল্ট_ওয়েবসাইট_লেখা = {
+            siteTitle: "ব্লাড ডোনার সোসাইটি পি.এম.খালী ইউনিয়ন",
+            siteSubtitle: "পি.এম.খালী ইউনিয়ন, কক্সবাজার সদর",
             regBtn: "+ রক্তদাতা হোন",
-            heroBadge: "যুব ও ক্রীড়া বিভাগ, ৬নং ওয়ার্ড উদ্যোগ",
+            heroBadge: "পি.এম.খালী ইউনিয়ন স্বেচ্ছাসেবী উদ্যোগ",
             heroHeading: "এক ব্যাগ রক্ত, বাঁচাতে পারে একটি প্রাণ",
-            heroDesc: "জরুরি প্রয়োজনে আমাদের ৬নং ওয়ার্ডের স্বেচ্ছাসেবী রক্তদাতাদের সাথে সরাসরি যোগাযোগ করুন।",
+            heroDesc: "জরুরি প্রয়োজনে আমাদের পি.এম.খালী ইউনিয়নের স্বেচ্ছাসেবী রক্তদাতাদের সাথে সরাসরি যোগাযোগ করুন।",
             stat1: "মোট রক্তদাতা",
             stat2: "রক্তদানে প্রস্তুত",
             stat3Val: "২৪/৭",
             stat3: "জরুরি সেবা",
             listHeading: "তালিকাভুক্ত রক্তদাতাগণ",
             galleryTitle: "রক্তদানের মুহূর্ত (গ্যালারি)",
-            gallerySubtitle: "আমাদের ৬নং ওয়ার্ডের বীর রক্তদাতাদের রক্তদানের কিছু স্মরণীয় মুহূর্ত",
+            gallerySubtitle: "আমাদের পি.এম.খালী ইউনিয়নের বীর রক্তদাতাদের রক্তদানের কিছু স্মরণীয় মুহূর্ত",
             formTitle: "নতুন রক্তদাতা হিসেবে নিবন্ধন করুন",
-            formSubtitle: "৬নং ওয়ার্ডের বাসিন্দা হলে নিচের তথ্য দিয়ে তালিকায় যুক্ত হোন",
-            footerTitle: "রক্তের বন্ধন - ৬নং ওয়ার্ড ব্লাড ব্যাংক",
-            footerOrg: "পরিচালনায়: যুব ও ক্রীড়া বিভাগ, ৬নং ওয়ার্ড, পি.এম.খালী, কক্সবাজার সদর",
+            formSubtitle: "পি.এম.খালী ইউনিয়নের বাসিন্দা হলে নিচের তথ্য দিয়ে তালিকায় যুক্ত হোন",
+            footerTitle: "ব্লাড ডোনার সোসাইটি পি.এম.খালী ইউনিয়ন",
+            footerOrg: "পরিচালনায় : পি.এম.খালী ইউনিয়ন, কক্সবাজার সদর।",
             footerCopy: "© ২০২৬ সর্বস্বত্ব সংরক্ষিত | মানবতার সেবায় আমরা সর্বদা প্রস্তুত"
         };
 
-        // স্থায়ী রক্তদাতা তালিকা
-        const স্থায়ী_রক্তদাতা_তালিকা = [
-            { id: 1, name: "আল আমিন", group: "B+", phone: "01930912687", area: "উত্তর পাতলী, ৬নং ওয়ার্ড", lastDate: "", photo: "alamin.jpg" },
+        // ডিফল্ট রক্তদাতা তালিকা
+        const ডিফল্ট_রক্তদাতা_তালিকা = [
+            { id: 1, name: "আল আমিন", group: "B+", phone: "01930912687", area: "পি.এম.খালী ইউনিয়ন", lastDate: "", photo: "alamin.jpg" },
             { id: 2, name: "সাকিবুল হাসান", group: "B+", phone: "01829533525", area: "কলাতলী, ১নং ওয়ার্ড", lastDate: "2026-06-15", photo: "" },
-            { id: 3, name: "মোহাম্মদ রাশেদ", group: "A+", phone: "01301033181", area: "দঃ পাতলী, ৬নং ওয়ার্ড", lastDate: "2026-10-10", photo: "" },
-            { id: 4, name: "তারেকুল ইসলাম", group: "AB+", phone: "01800000004", area: "উত্তর পাতলী পূর্ব পাড়া", lastDate: "", photo: "" },
-            { id: 5, name: "আব্দুল্লাহ আল মামুন", group: "O-", phone: "01800000005", area: "৬নং ওয়ার্ড, পি.এম.খালী", lastDate: "2026-05-01", photo: "" },
-            { id: 6, name: "নুরুল আবছার", group: "B-", phone: "01800000006", area: "উত্তর পাতলী পশ্চিম পাড়া", lastDate: "", photo: "" }
+            { id: 3, name: "মোহাম্মদ রাশেদ", group: "A+", phone: "01301033181", area: "পি.এম.খালী ইউনিয়ন", lastDate: "2026-10-10", photo: "" }
         ];
 
-        // স্থায়ী রক্তদানের গ্যালারি তালিকা
-        const স্থায়ী_গ্যালারি_তালিকা = [
+        // ডিফল্ট গ্যালারি তালিকা
+        const ডিফল্ট_গ্যালারি_তালিকা = [
             {
                 id: 101,
                 donorName: "আল আমিন",
@@ -491,14 +491,71 @@
             }
         ];
 
-        let siteTexts = JSON.parse(localStorage.getItem('ward6_site_texts_v2')) || স্থায়ী_ওয়েবসাইট_লেখা;
-        let donors = JSON.parse(localStorage.getItem('ward6_donors_admin_v1')) || স্থায়ী_রক্তদাতা_তালিকা;
-        let galleryItems = JSON.parse(localStorage.getItem('ward6_gallery_v1')) || স্থায়ী_গ্যালারি_তালিকা;
+        let siteTexts = { ...ডিফল্ট_ওয়েবসাইট_লেখা };
+        let donors = [...ডিফল্ট_রক্তদাতা_তালিকা];
+        let galleryItems = [...ডিফল্ট_গ্যালারি_তালিকা];
         
         let নির্বাচিত_ছবি_ডেটা = "";
         let গ্যালারি_ছবি_ডেটা = "";
 
-        // ওয়েবসাইটের লেখাগুলো স্ক্রিনে বসানো
+        // অনলাইন ডেটাবেস থেকে সব ডেটা লোড করা
+        async function অনলাইন_ডেটা_লোড_করুন() {
+            const cleanUrl = FIREBASE_DB_URL.replace(/\/$/, "");
+            if (!cleanUrl) {
+                document.getElementById('db-warning-banner').classList.remove('hidden');
+                siteTexts = JSON.parse(localStorage.getItem('pmkhali_site_texts_v1')) || ডিফল্ট_ওয়েবসাইট_লেখা;
+                donors = JSON.parse(localStorage.getItem('pmkhali_donors_v1')) || ডিফল্ট_রক্তদাতা_তালিকা;
+                galleryItems = JSON.parse(localStorage.getItem('pmkhali_gallery_v1')) || ডিফল্ট_গ্যালারি_তালিকা;
+                সব_রেন্ডার_করুন();
+                return;
+            }
+
+            try {
+                const res = await fetch(`${cleanUrl}/pmkhali_blood_data.json`);
+                const data = await res.json();
+                if (data) {
+                    if (data.siteTexts) siteTexts = { ...ডিফল্ট_ওয়েবসাইট_লেখা, ...data.siteTexts };
+                    if (data.donors) donors = Array.isArray(data.donors) ? data.donors.filter(Boolean) : Object.values(data.donors);
+                    if (data.galleryItems) galleryItems = Array.isArray(data.galleryItems) ? data.galleryItems.filter(Boolean) : Object.values(data.galleryItems);
+                } else {
+                    await অনলাইন_ডেটা_সেভ_করুন();
+                }
+            } catch (err) {
+                console.error("Database load error:", err);
+            }
+            সব_রেন্ডার_করুন();
+        }
+
+        // অনলাইন ডেটাবেসে সব ডেটা সেভ করা
+        async function অনলাইন_ডেটা_সেভ_করুন() {
+            const cleanUrl = FIREBASE_DB_URL.replace(/\/$/, "");
+            if (!cleanUrl) {
+                localStorage.setItem('pmkhali_site_texts_v1', JSON.stringify(siteTexts));
+                localStorage.setItem('pmkhali_donors_v1', JSON.stringify(donors));
+                localStorage.setItem('pmkhali_gallery_v1', JSON.stringify(galleryItems));
+                return true;
+            }
+
+            try {
+                const res = await fetch(`${cleanUrl}/pmkhali_blood_data.json`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ siteTexts, donors, galleryItems })
+                });
+                return res.ok;
+            } catch (err) {
+                alert("ইন্টারনেট সংযোগ বা ডেটাবেস সেভ করতে সমস্যা হয়েছে!");
+                return false;
+            }
+        }
+
+        function সব_রেন্ডার_করুন() {
+            ওয়েবসাইট_লেখা_প্রয়োগ();
+            অ্যাডমিন_অবস্থা_আপডেট();
+            তালিকা_দেখান();
+            গ্যালারি_দেখান();
+        }
+
         function ওয়েবসাইট_লেখা_প্রয়োগ() {
             document.title = `${siteTexts.siteTitle} | ${siteTexts.siteSubtitle}`;
             document.getElementById('txt-site-title').innerText = siteTexts.siteTitle;
@@ -521,12 +578,11 @@
             document.getElementById('txt-footer-copy').innerText = siteTexts.footerCopy;
         }
 
-        // গ্যালারি ফর্ম খোলা ও বন্ধ করা
+        // গ্যালারি ফর্ম ও ছবি আপলোড
         function গ্যালারি_ফর্ম_টগল() {
             document.getElementById('gallery-upload-box').classList.toggle('hidden');
         }
 
-        // গ্যালারির জন্য ছবি প্রসেস করা
         document.getElementById('gal-photo-file').addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (!file) {
@@ -539,12 +595,12 @@
                 const img = new Image();
                 img.onload = function() {
                     const canvas = document.createElement('canvas');
-                    const maxWidth = 600;
+                    const maxWidth = 500;
                     const scale = maxWidth / img.width;
                     canvas.width = maxWidth;
                     canvas.height = img.height * scale;
                     canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
-                    গ্যালারি_ছবি_ডেটা = canvas.toDataURL('image/jpeg', 0.8);
+                    গ্যালারি_ছবি_ডেটা = canvas.toDataURL('image/jpeg', 0.75);
                     const preview = document.getElementById('gal-preview');
                     preview.src = গ্যালারি_ছবি_ডেটা;
                     preview.classList.remove('hidden');
@@ -554,13 +610,16 @@
             reader.readAsDataURL(file);
         });
 
-        // গ্যালারি ফর্ম সাবমিট
-        document.getElementById('gallery-form').addEventListener('submit', function(e) {
+        document.getElementById('gallery-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             if (!গ্যালারি_ছবি_ডেটা) {
                 alert("অনুগ্রহ করে একটি ছবি নির্বাচন করুন।");
                 return;
             }
+            const btn = document.getElementById('gal-submit-btn');
+            btn.disabled = true;
+            btn.innerText = "আপলোড হচ্ছে...";
+
             const নতুন_ছবি = {
                 id: Date.now(),
                 donorName: document.getElementById('gal-donor-name').value.trim(),
@@ -570,19 +629,22 @@
                 image: গ্যালারি_ছবি_ডেটা
             };
             galleryItems.unshift(নতুন_ছবি);
-            localStorage.setItem('ward6_gallery_v1', JSON.stringify(galleryItems));
+            await অনলাইন_ডেটা_সেভ_করুন();
+
+            btn.disabled = false;
+            btn.innerText = "গ্যালারিতে প্রকাশ করুন";
             this.reset();
             গ্যালারি_ছবি_ডেটা = "";
             document.getElementById('gal-preview').classList.add('hidden');
             গ্যালারি_ফর্ম_টগল();
             গ্যালারি_দেখান();
-            alert("ধন্যবাদ! আপনার রক্তদানের ছবিটি গ্যালারিতে যুক্ত হয়েছে।");
+            alert("ধন্যবাদ! আপনার রক্তদানের ছবিটি সবার জন্য গ্যালারিতে প্রকাশিত হয়েছে।");
         });
 
-        function গ্যালারি_ছবি_মুছুন(id) {
+        async function গ্যালারি_ছবি_মুছুন(id) {
             if (confirm("আপনি কি গ্যালারি থেকে এই ছবিটি মুছে ফেলতে চান?")) {
                 galleryItems = galleryItems.filter(item => item.id !== id);
-                localStorage.setItem('ward6_gallery_v1', JSON.stringify(galleryItems));
+                await অনলাইন_ডেটা_সেভ_করুন();
                 গ্যালারি_দেখান();
             }
         }
@@ -671,8 +733,12 @@
             document.getElementById('text-edit-modal').classList.add('hidden');
         }
 
-        document.getElementById('site-text-form').addEventListener('submit', function(e) {
+        document.getElementById('site-text-form').addEventListener('submit', async function(e) {
             e.preventDefault();
+            const btn = document.getElementById('text-save-btn');
+            btn.disabled = true;
+            btn.innerText = "সেভ হচ্ছে...";
+
             siteTexts = {
                 siteTitle: document.getElementById('in-site-title').value.trim(),
                 siteSubtitle: document.getElementById('in-site-subtitle').value.trim(),
@@ -693,10 +759,12 @@
                 footerOrg: document.getElementById('in-footer-org').value.trim(),
                 footerCopy: document.getElementById('in-footer-copy').value.trim()
             };
-            localStorage.setItem('ward6_site_texts_v2', JSON.stringify(siteTexts));
+            await অনলাইন_ডেটা_সেভ_করুন();
+            btn.disabled = false;
+            btn.innerText = "সব লেখা লাইভ সেভ করুন";
             ওয়েবসাইট_লেখা_প্রয়োগ();
             লেখা_এডিট_মোডাল_বন্ধ();
-            alert("ওয়েবসাইটের সব লেখা সফলভাবে পরিবর্তন হয়েছে!");
+            alert("ওয়েবসাইটের সব লেখা লাইভ আপডেট হয়েছে!");
         });
 
         // অ্যাডমিন লগইন / লগআউট
@@ -708,10 +776,8 @@
                 if (ইনপুট_পাসওয়ার্ড === অ্যাডমিন_পাসওয়ার্ড) {
                     অ্যাডমিন_লগইন_আছে = true;
                     sessionStorage.setItem('ward6_admin_logged', 'true');
-                    অ্যাডমিন_অবস্থা_আপডেট();
-                    তালিকা_দেখান();
-                    গ্যালারি_দেখান();
-                    alert("স্বাগতম স্যার! অ্যাডমিন প্যানেল চালু হয়েছে।");
+                    সব_রেন্ডার_করুন();
+                    alert("স্বাগতম স্যার! লাইভ অ্যাডমিন প্যানেল চালু হয়েছে।");
                 } else if (ইনপুট_পাসওয়ার্ড !== null) {
                     alert("দুঃখিত, পাসওয়ার্ড সঠিক নয়!");
                 }
@@ -721,9 +787,7 @@
         function অ্যাডমিন_লগআউট() {
             অ্যাডমিন_লগইন_আছে = false;
             sessionStorage.removeItem('ward6_admin_logged');
-            অ্যাডমিন_অবস্থা_আপডেট();
-            তালিকা_দেখান();
-            গ্যালারি_দেখান();
+            সব_রেন্ডার_করুন();
         }
 
         function অ্যাডমিন_অবস্থা_আপডেট() {
@@ -740,10 +804,10 @@
             }
         }
 
-        function ডোনার_মুছুন(id) {
+        async function ডোনার_মুছুন(id) {
             if (confirm("আপনি কি নিশ্চিতভাবে এই রক্তদাতাকে তালিকা থেকে মুছে ফেলতে চান?")) {
                 donors = donors.filter(d => d.id !== id);
-                localStorage.setItem('ward6_donors_admin_v1', JSON.stringify(donors));
+                await অনলাইন_ডেটা_সেভ_করুন();
                 তালিকা_দেখান();
             }
         }
@@ -765,8 +829,12 @@
             document.getElementById('edit-modal').classList.add('hidden');
         }
 
-        document.getElementById('edit-donor-form').addEventListener('submit', function(e) {
+        document.getElementById('edit-donor-form').addEventListener('submit', async function(e) {
             e.preventDefault();
+            const btn = document.getElementById('edit-save-btn');
+            btn.disabled = true;
+            btn.innerText = "সেভ হচ্ছে...";
+
             const id = Number(document.getElementById('edit-id').value);
             const index = donors.findIndex(d => d.id === id);
             if (index !== -1) {
@@ -779,18 +847,14 @@
                     lastDate: document.getElementById('edit-last-date').value,
                     photo: document.getElementById('edit-photo').value.trim()
                 };
-                localStorage.setItem('ward6_donors_admin_v1', JSON.stringify(donors));
+                await অনলাইন_ডেটা_সেভ_করুন();
                 এডিট_মোডাল_বন্ধ();
                 তালিকা_দেখান();
-                alert("তথ্য সফলভাবে আপডেট হয়েছে!");
+                alert("তথ্য সফলভাবে লাইভ আপডেট হয়েছে!");
             }
+            btn.disabled = false;
+            btn.innerText = "আপডেট লাইভ সেভ করুন";
         });
-
-        function ডেটা_এক্সপোর্ট_করুন() {
-            const codeText = `const স্থায়ী_ওয়েবসাইট_লেখা = ${JSON.stringify(siteTexts, null, 4)};\n\nconst স্থায়ী_রক্তদাতা_তালিকা = ${JSON.stringify(donors, null, 4)};\n\nconst স্থায়ী_গ্যালারি_তালিকা = ${JSON.stringify(galleryItems, null, 4)};`;
-            navigator.clipboard.writeText(codeText);
-            alert("আপডেট করা সব লেখা, রক্তদাতার তালিকা এবং গ্যালারির ডেটা কপি হয়েছে! এখন GitHub-এর index.html ফাইলে পেস্ট করে সেভ করলেই সবার মোবাইলে স্থায়ী হয়ে যাবে।");
-        }
 
         function ছবির_লিংক_তৈরি(donor) {
             if (donor.photo && donor.photo.trim() !== "") {
@@ -811,10 +875,10 @@
                 const img = new Image();
                 img.onload = function() {
                     const canvas = document.createElement('canvas');
-                    canvas.width = 200;
-                    canvas.height = 200;
-                    canvas.getContext('2d').drawImage(img, 0, 0, 200, 200);
-                    নির্বাচিত_ছবি_ডেটা = canvas.toDataURL('image/jpeg', 0.8);
+                    canvas.width = 180;
+                    canvas.height = 180;
+                    canvas.getContext('2d').drawImage(img, 0, 0, 180, 180);
+                    নির্বাচিত_ছবি_ডেটা = canvas.toDataURL('image/jpeg', 0.75);
                     const preview = document.getElementById('photo-preview');
                     preview.src = নির্বাচিত_ছবি_ডেটা;
                     preview.classList.remove('hidden');
@@ -908,7 +972,7 @@
                 const ছবির_উৎস = ছবির_লিংক_তৈরি(donor);
                 const ফলব্যাক_ছবি = `https://ui-avatars.com/api/?name=${encodeURIComponent(donor.name)}&background=fee2e2&color=b91c1c&bold=true&size=128`;
                 const waPhone = donor.phone.startsWith('0') ? '88' + donor.phone : donor.phone;
-                const waText = encodeURIComponent(`আসসালামু আলাইকুম ${donor.name}, ৬নং ওয়ার্ড ব্লাড ব্যাংক থেকে আপনার নম্বর পেয়েছি। জরুরি ভিত্তিতে ${donor.group} রক্তের প্রয়োজন।`);
+                const waText = encodeURIComponent(`আসসালামু আলাইকুম ${donor.name}, ব্লাড ডোনার সোসাইটি পি.এম.খালী ইউনিয়ন থেকে আপনার নম্বর পেয়েছি। জরুরি ভিত্তিতে ${donor.group} রক্তের প্রয়োজন।`);
 
                 const অ্যাডমিন_বাটন_অংশ = অ্যাডমিন_লগইন_আছে ? `
                     <div class="mt-3 pt-2.5 border-t border-dashed border-amber-300 bg-amber-50/70 -mx-5 -mb-5 px-5 py-2.5 rounded-b-2xl flex justify-between items-center">
@@ -970,7 +1034,7 @@
             if (navigator.share) {
                 navigator.share({
                     title: siteTexts.siteTitle,
-                    text: 'জরুরি প্রয়োজনে আমাদের ৬নং ওয়ার্ডের রক্তদাতাদের তালিকা দেখুন:',
+                    text: 'জরুরি প্রয়োজনে আমাদের পি.এম.খালী ইউনিয়নের রক্তদাতাদের তালিকা দেখুন:',
                     url: url
                 });
             } else {
@@ -979,8 +1043,12 @@
             }
         }
 
-        document.getElementById('donor-form').addEventListener('submit', function(e) {
+        document.getElementById('donor-form').addEventListener('submit', async function(e) {
             e.preventDefault();
+            const btn = document.getElementById('donor-submit-btn');
+            btn.disabled = true;
+            btn.innerText = "তালিকায় যুক্ত হচ্ছে...";
+
             const নতুন_রক্তদাতা = {
                 id: Date.now(),
                 name: document.getElementById('donor-name').value.trim(),
@@ -992,23 +1060,23 @@
             };
 
             donors.unshift(নতুন_রক্তদাতা);
-            localStorage.setItem('ward6_donors_admin_v1', JSON.stringify(donors));
+            await অনলাইন_ডেটা_সেভ_করুন();
+
+            btn.disabled = false;
+            btn.innerText = "তালিকায় যুক্ত হোন";
             this.reset();
             নির্বাচিত_ছবি_ডেটা = "";
             document.getElementById('photo-preview').classList.add('hidden');
-            document.getElementById('donor-area').value = "উত্তর পাতলী, ৬নং ওয়ার্ড";
+            document.getElementById('donor-area').value = "পি.এম.খালী ইউনিয়ন";
             তালিকা_দেখান();
-            alert('ধন্যবাদ! রক্তদাতা হিসেবে আপনার নাম ও ছবি সফলভাবে যুক্ত হয়েছে।');
+            alert('ধন্যবাদ! রক্তদাতা হিসেবে আপনার নাম ও ছবি সফলভাবে সবার জন্য যুক্ত হয়েছে।');
         });
 
         document.getElementById('filter-group').addEventListener('change', তালিকা_দেখান);
         document.getElementById('search-input').addEventListener('input', তালিকা_দেখান);
         document.getElementById('only-available').addEventListener('change', তালিকা_দেখান);
 
-        ওয়েবসাইট_লেখা_প্রয়োগ();
-        অ্যাডমিন_অবস্থা_আপডেট();
-        তালিকা_দেখান();
-        গ্যালারি_দেখান();
+        অনলাইন_ডেটা_লোড_করুন();
     </script>
 </body>
 </html>
